@@ -53,7 +53,7 @@ $small-font-size:     rem-calc(14);
 $line-height:         rem-calc(24);
 $tiny-font-size:      rem-calc(12);
 
-$brand:             #004A83;
+$brand:             #446336;
 $dark:              darken($brand, 10%);
 
 $text:              #222222;
@@ -62,7 +62,7 @@ $text-light:        #BFBFBF;
 
 $border:            #DEE0E3;
 
-$link:              $brand;
+$link:              #79AA64;
 $link-hover:        darken($link, 20%);
 
 $debates:           $brand;
@@ -73,14 +73,14 @@ $unlike:            #EF8585;
 $delete:            #F04124;
 $check:             #46DB91;
 
-$proposals:         #FFA42D;
+$proposals:         #EAC102;
 $proposals-dark:    #794500;
 
 $budget:            #454372;
 $budget-hover:      #7571BF;
 
-$highlight:         #E7F2FC;
-$featured:          #FFDC5C;
+$highlight:         #F8EEC6;
+$featured:          #EAC102;
 
 $footer-border:     #BFC1C3;
 
@@ -88,9 +88,9 @@ $success-bg:        #DFF0D8;
 $success-border:    #D6E9C6;
 $color-success:     #3C763D;
 
-$info-bg:           #D9EDF7;
-$info-border:       #BCE8F1;
-$color-info:        #31708F;
+$info-bg:           #F7F1DA;
+$info-border:       #EDDD9E;
+$color-info:        darken($brand, 10%);
 
 $warning-bg:        #FCF8E3;
 $warning-border:    #FAEBCC;
@@ -108,7 +108,7 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #2199e8,
+  primary: #79AA64,
   secondary: #777,
   success: #3adb76,
   warning: #ffae00,
