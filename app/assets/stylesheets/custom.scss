@@ -3,3 +3,1586 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+
+//  Foundation for Sites Settings
+//  -----------------------------
+//
+//  Table of Contents:
+//
+//   0. Custom variables
+//   1. Global
+//   2. Breakpoints
+//   3. The Grid
+//   4. Base Typography
+//   5. Typography Helpers
+//   6. Abide
+//   7. Accordion
+//   8. Accordion Menu
+//   9. Badge
+//  10. Breadcrumbs
+//  11. Button
+//  12. Button Group
+//  13. Callout
+//  14. Close Button
+//  15. Drilldown
+//  16. Dropdown
+//  17. Dropdown Menu
+//  18. Flex Video
+//  19. Forms
+//  20. Label
+//  21. Media Object
+//  22. Menu
+//  23. Meter
+//  24. Off-canvas
+//  25. Orbit
+//  26. Pagination
+//  27. Progress Bar
+//  28. Reveal
+//  29. Slider
+//  30. Switch
+//  31. Table
+//  32. Tabs
+//  33. Thumbnail
+//  34. Title Bar
+//  35. Tooltip
+//  36. Top Bar
+//  37. Custom variables
+
+@import 'util/util';
+
+// 0. Custom variables
+// --------------------
+
+$base-font-size:      rem-calc(17);
+$base-line:           rem-calc(26);
+$small-font-size:     rem-calc(14);
+$line-height:         rem-calc(24);
+$tiny-font-size:      rem-calc(12);
+
+$brand:             #446336;
+$dark:              darken($brand, 10%);
+
+$text:              #222222;
+$text-medium:       #515151;
+$text-light:        #BFBFBF;
+
+$border:            #DEE0E3;
+
+$link:              #79AA64;
+$link-hover:        darken($link, 20%);
+
+$debates:           $brand;
+
+$like:              #7BD2A8;
+$unlike:            #EF8585;
+
+$delete:            #F04124;
+$check:             #46DB91;
+
+$proposals:         #EAC102;
+$proposals-dark:    #794500;
+
+$budget:            #454372;
+$budget-hover:      #7571BF;
+
+$highlight:         #F8EEC6;
+$featured:          #EAC102;
+
+$footer-border:     #BFC1C3;
+
+$success-bg:        #DFF0D8;
+$success-border:    #D6E9C6;
+$color-success:     #3C763D;
+
+$info-bg:           #F7F1DA;
+$info-border:       #EDDD9E;
+$color-info:        darken($brand, 10%);
+
+$warning-bg:        #FCF8E3;
+$warning-border:    #FAEBCC;
+$color-warning:     #8A6D3B;
+
+$alert-bg:          #F2DEDE;
+$alert-border:      #EBCCD1;
+$color-alert:       #A94442;
+
+
+// 1. Global
+// ---------
+
+$global-font-size: 100%;
+$global-width: rem-calc(1200);
+$global-lineheight: 1.5;
+$foundation-palette: (
+  primary: #79AA64,
+  secondary: #777,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #ec5840,
+);
+$light-gray: #e6e6e6;
+$medium-gray: #cacaca;
+$dark-gray: #8a8a8a;
+$black: #222222;
+$white: #ffffff;
+$body-background: $white;
+$body-font-color: $black;
+$body-font-family: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif !important;
+$body-antialiased: true;
+$global-margin: 1rem;
+$global-padding: 1rem;
+$global-weight-normal: normal;
+$global-weight-bold: bold;
+$global-radius: rem-calc(3);
+$global-text-direction: ltr;
+$global-flexbox: false;
+$print-transparent-backgrounds: true;
+
+@include add-foundation-colors;
+
+// 2. Breakpoints
+// --------------
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+);
+$breakpoint-classes: (small medium large);
+
+// 3. The Grid
+// -----------
+
+$grid-row-width: $global-width;
+$grid-column-count: 12;
+$grid-column-gutter: (
+  small: 20px,
+  medium: 30px,
+);
+$grid-column-align-edge: true;
+$block-grid-max: 8;
+
+// 4. Base Typography
+// ------------------
+
+$header-font-family: $body-font-family;
+$header-font-weight: $global-weight-normal;
+$header-font-style: normal;
+$font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+$header-sizes: (
+  small: (
+    'h1': 34,
+    'h2': 24,
+    'h3': 20,
+    'h4': 18,
+    'h5': 16,
+    'h6': 14,
+  ),
+  medium: (
+    'h1': 44,
+    'h2': 34,
+    'h3': 24,
+    'h4': 19,
+    'h5': 16,
+    'h6': 13,
+  ),
+);
+$header-color: inherit;
+$header-lineheight: 1.4;
+$header-margin-bottom: 0.5rem;
+$header-text-rendering: optimizeLegibility;
+$small-font-size: rem-calc(14);
+$header-small-font-color: $medium-gray;
+$paragraph-lineheight: 1.6;
+$paragraph-margin-bottom: 1rem;
+$paragraph-text-rendering: optimizeLegibility;
+$code-color: $black;
+$code-font-family: $font-family-monospace;
+$code-font-weight: $global-weight-normal;
+$code-background: $light-gray;
+$code-border: 1px solid $medium-gray;
+$code-padding: rem-calc(2 5 1);
+$anchor-color: $primary-color;
+$anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
+$anchor-text-decoration: none;
+$anchor-text-decoration-hover: none;
+$hr-width: $global-width;
+$hr-border: 1px solid $medium-gray;
+$hr-margin: rem-calc(20) auto;
+$list-lineheight: $paragraph-lineheight;
+$list-margin-bottom: $paragraph-margin-bottom;
+$list-style-type: disc;
+$list-style-position: outside;
+$list-side-margin: 1.25rem;
+$list-nested-side-margin: 1.25rem;
+$defnlist-margin-bottom: 1rem;
+$defnlist-term-weight: $global-weight-bold;
+$defnlist-term-margin-bottom: 0.3rem;
+$blockquote-color: $dark-gray;
+$blockquote-padding: rem-calc(9 20 0 19);
+$blockquote-border: 1px solid $medium-gray;
+$cite-font-size: rem-calc(13);
+$cite-color: $dark-gray;
+$keystroke-font: $font-family-monospace;
+$keystroke-color: $black;
+$keystroke-background: $light-gray;
+$keystroke-padding: rem-calc(2 4 0);
+$keystroke-radius: $global-radius;
+$abbr-underline: 1px dotted $black;
+
+// 5. Typography Helpers
+// ---------------------
+
+$lead-font-size: $global-font-size * 1.25;
+$lead-lineheight: 1.6;
+$subheader-lineheight: 1.4;
+$subheader-color: $dark-gray;
+$subheader-font-weight: $global-weight-normal;
+$subheader-margin-top: 0.2rem;
+$subheader-margin-bottom: 0.5rem;
+$stat-font-size: 2.5rem;
+
+// 6. Abide
+// --------
+
+$abide-inputs: true;
+$abide-labels: true;
+$input-background-invalid: map-get($foundation-palette, alert);
+$form-label-color-invalid: map-get($foundation-palette, alert);
+$input-error-color: map-get($foundation-palette, alert);
+$input-error-font-size: rem-calc(12);
+$input-error-font-weight: $global-weight-bold;
+
+// 7. Accordion
+// ------------
+
+$accordion-background: $white;
+$accordion-plusminus: true;
+$accordion-item-color: foreground($accordion-background, $text);
+$accordion-item-background-hover: $light-gray;
+$accordion-item-padding: 1.25rem 1rem;
+$accordion-content-background: $white;
+$accordion-content-border: 1px solid $light-gray;
+$accordion-content-color: foreground($accordion-background, $text);
+$accordion-content-padding: 1rem;
+
+// 8. Accordion Menu
+// -----------------
+
+$accordionmenu-arrows: true;
+$accordionmenu-arrow-color: $primary-color;
+
+// 9. Badge
+// --------
+
+$badge-background: $primary-color;
+$badge-color: foreground($badge-background);
+$badge-padding: 0.3em;
+$badge-minwidth: 2.1em;
+$badge-font-size: 0.6rem;
+
+// 10. Breadcrumbs
+// ---------------
+
+$breadcrumbs-margin: 0 0 $global-margin 0;
+$breadcrumbs-item-font-size: rem-calc(11);
+$breadcrumbs-item-color: $primary-color;
+$breadcrumbs-item-color-current: $black;
+$breadcrumbs-item-color-disabled: $medium-gray;
+$breadcrumbs-item-margin: 0.75rem;
+$breadcrumbs-item-uppercase: true;
+$breadcrumbs-item-slash: true;
+
+// 11. Button
+// ----------
+
+$button-padding: 0.85em 1em;
+$button-margin: 0 0 $global-margin 0;
+$button-fill: solid;
+$button-background: $primary-color;
+$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-color: $white;
+$button-color-alt: $black;
+$button-radius: $global-radius;
+$button-sizes: (
+  tiny: 0.6rem,
+  small: 0.75rem,
+  default: 0.9rem,
+  large: 1.25rem,
+);
+$button-opacity-disabled: 0.25;
+
+// 12. Button Group
+// ----------------
+
+$buttongroup-margin: 1rem;
+$buttongroup-spacing: 1px;
+$buttongroup-child-selector: '.button';
+$buttongroup-expand-max: 6;
+
+// 13. Callout
+// -----------
+
+$callout-background: $white;
+$callout-background-fade: 85%;
+$callout-border: 1px solid rgba($black, 0.25);
+$callout-margin: 0 0 1rem 0;
+$callout-padding: 1rem;
+$callout-font-color: $body-font-color;
+$callout-font-color-alt: $body-background;
+$callout-radius: $global-radius;
+$callout-link-tint: 30%;
+
+// 14. Close Button
+// ----------------
+
+$closebutton-position: right top;
+$closebutton-offset-horizontal: 1rem;
+$closebutton-offset-vertical: 0.5rem;
+$closebutton-size: 2em;
+$closebutton-lineheight: 1;
+$closebutton-color: $dark-gray;
+$closebutton-color-hover: $black;
+
+// 15. Drilldown
+// -------------
+
+$drilldown-transition: transform 0.15s linear;
+$drilldown-arrows: true;
+$drilldown-arrow-color: $primary-color;
+$drilldown-background: $white;
+
+// 16. Dropdown
+// ------------
+
+$dropdown-padding: 1rem;
+$dropdown-border: 1px solid $medium-gray;
+$dropdown-font-size: 1rem;
+$dropdown-width: 300px;
+$dropdown-radius: $global-radius;
+$dropdown-sizes: (
+  tiny: 100px,
+  small: 200px,
+  large: 400px,
+);
+
+// 17. Dropdown Menu
+// -----------------
+
+$dropdownmenu-arrows: true;
+$dropdownmenu-arrow-color: $anchor-color;
+$dropdownmenu-min-width: 200px;
+$dropdownmenu-background: $white;
+$dropdownmenu-border: 1px solid $medium-gray;
+
+// 18. Flex Video
+// --------------
+
+$flexvideo-margin-bottom: rem-calc(16);
+$flexvideo-ratio: 4 by 3;
+$flexvideo-ratio-widescreen: 16 by 9;
+
+// 19. Forms
+// ---------
+
+$fieldset-border: 1px solid $medium-gray;
+$fieldset-padding: rem-calc(20);
+$fieldset-margin: rem-calc(18 0);
+$legend-padding: rem-calc(0 3);
+$form-spacing: rem-calc(16);
+$helptext-color: $black;
+$helptext-font-size: rem-calc(13);
+$helptext-font-style: italic;
+$input-prefix-color: $black;
+$input-prefix-background: $light-gray;
+$input-prefix-border: 1px solid $medium-gray;
+$input-prefix-padding: 1rem;
+$form-label-color: $black;
+$form-label-font-size: rem-calc(14);
+$form-label-font-weight: $global-weight-normal;
+$form-label-line-height: 1.8;
+$select-background: $white;
+$select-triangle-color: $dark-gray;
+$select-radius: $global-radius;
+$input-color: $black;
+$input-placeholder-color: $medium-gray;
+$input-font-family: inherit;
+$input-font-size: rem-calc(16);
+$input-background: $white;
+$input-background-focus: $white;
+$input-background-disabled: $light-gray;
+$input-border: 1px solid $medium-gray;
+$input-border-focus: 1px solid $dark-gray;
+$input-shadow: inset 0 1px 2px rgba($black, 0.1);
+$input-shadow-focus: 0 0 5px $medium-gray;
+$input-cursor-disabled: not-allowed;
+$input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+$input-number-spinners: true;
+$input-radius: $global-radius;
+
+// 20. Label
+// ---------
+
+$label-background: $primary-color;
+$label-color: foreground($label-background);
+$label-font-size: 0.8rem;
+$label-padding: 0.33333rem 0.5rem;
+$label-radius: $global-radius;
+
+// 21. Media Object
+// ----------------
+
+$mediaobject-margin-bottom: $global-margin;
+$mediaobject-section-padding: $global-padding;
+$mediaobject-image-width-stacked: 100%;
+
+// 22. Menu
+// --------
+
+$menu-margin: 0;
+$menu-margin-nested: 1rem;
+$menu-item-padding: 0.7rem 1rem;
+$menu-item-color-active: $white;
+$menu-item-background-active: map-get($foundation-palette, primary);
+$menu-icon-spacing: 0.25rem;
+
+// 23. Meter
+// ---------
+
+$meter-height: 1rem;
+$meter-radius: $global-radius;
+$meter-background: $medium-gray;
+$meter-fill-good: $success-color;
+$meter-fill-medium: $warning-color;
+$meter-fill-bad: $alert-color;
+
+// 24. Off-canvas
+// --------------
+
+$offcanvas-size: 250px;
+$offcanvas-background: $light-gray;
+$offcanvas-zindex: -1;
+$offcanvas-transition-length: 0.5s;
+$offcanvas-transition-timing: ease;
+$offcanvas-fixed-reveal: true;
+$offcanvas-exit-background: rgba($white, 0.25);
+$maincontent-class: 'off-canvas-content';
+$maincontent-shadow: 0 0 10px rgba($black, 0.5);
+
+// 25. Orbit
+// ---------
+
+$orbit-bullet-background: $medium-gray;
+$orbit-bullet-background-active: $dark-gray;
+$orbit-bullet-diameter: 1.2rem;
+$orbit-bullet-margin: 0.1rem;
+$orbit-bullet-margin-top: 0.8rem;
+$orbit-bullet-margin-bottom: 0.8rem;
+$orbit-caption-background: rgba($black, 0.5);
+$orbit-caption-padding: 1rem;
+$orbit-control-background-hover: rgba($black, 0.5);
+$orbit-control-padding: 1rem;
+$orbit-control-zindex: 10;
+
+// 26. Pagination
+// --------------
+
+$pagination-font-size: rem-calc(14);
+$pagination-margin-bottom: $global-margin;
+$pagination-item-color: $black;
+$pagination-item-padding: rem-calc(3 10);
+$pagination-item-spacing: rem-calc(1);
+$pagination-radius: $global-radius;
+$pagination-item-background-hover: $light-gray;
+$pagination-item-background-current: $primary-color;
+$pagination-item-color-current: foreground($pagination-item-background-current);
+$pagination-item-color-disabled: $medium-gray;
+$pagination-ellipsis-color: $black;
+$pagination-mobile-items: false;
+$pagination-arrows: true;
+
+// 27. Progress Bar
+// ----------------
+
+$progress-height: 1rem;
+$progress-background: $medium-gray;
+$progress-margin-bottom: $global-margin;
+$progress-meter-background: $primary-color;
+$progress-radius: $global-radius;
+
+// 28. Reveal
+// ----------
+
+$reveal-background: $white;
+$reveal-width: 600px;
+$reveal-max-width: $global-width;
+$reveal-padding: $global-padding;
+$reveal-border: 1px solid $medium-gray;
+$reveal-radius: $global-radius;
+$reveal-zindex: 1005;
+$reveal-overlay-background: rgba($black, 0.45);
+
+// 29. Slider
+// ----------
+
+$slider-width-vertical: 0.5rem;
+$slider-transition: all 0.2s ease-in-out;
+$slider-height: 0.5rem;
+$slider-background: $light-gray;
+$slider-fill-background: $medium-gray;
+$slider-handle-height: 1.4rem;
+$slider-handle-width: 1.4rem;
+$slider-handle-background: $primary-color;
+$slider-opacity-disabled: 0.25;
+$slider-radius: $global-radius;
+
+// 30. Switch
+// ----------
+
+$switch-background: $medium-gray;
+$switch-background-active: $primary-color;
+$switch-height: 2rem;
+$switch-height-tiny: 1.5rem;
+$switch-height-small: 1.75rem;
+$switch-height-large: 2.5rem;
+$switch-radius: $global-radius;
+$switch-margin: $global-margin;
+$switch-paddle-background: $white;
+$switch-paddle-offset: 0.25rem;
+$switch-paddle-radius: $global-radius;
+$switch-paddle-transition: all 0.25s ease-out;
+
+// 31. Table
+// ---------
+
+$table-background: $white;
+$table-color-scale: 5%;
+$table-border: 1px solid smart-scale($table-background, $table-color-scale);
+$table-padding: rem-calc(8 10 10);
+$table-hover-scale: 2%;
+$table-row-hover: darken($table-background, $table-hover-scale);
+$table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
+$table-striped-background: smart-scale($table-background, $table-color-scale);
+$table-stripe: even;
+$table-head-background: smart-scale($table-background, $table-color-scale / 2);
+$table-foot-background: smart-scale($table-background, $table-color-scale);
+$table-head-font-color: $body-font-color;
+$show-header-for-stacked: false;
+
+// 32. Tabs
+// --------
+
+$tab-margin: 0;
+$tab-background: $white;
+$tab-background-active: $white;
+$tab-item-font-size: $base-font-size;
+$tab-item-background-hover: $white;
+$tab-item-padding: $line-height/2  0;
+$tab-expand-max: 6;
+$tab-content-background: $white;
+$tab-content-border: $border;
+$tab-content-color: foreground($tab-background, $primary-color);
+$tab-content-padding: 1rem;
+
+// 33. Thumbnail
+// -------------
+
+$thumbnail-border: solid 4px $white;
+$thumbnail-margin-bottom: $global-margin;
+$thumbnail-shadow: 0 0 0 1px rgba($black, 0.2);
+$thumbnail-shadow-hover: 0 0 6px 1px rgba($primary-color, 0.5);
+$thumbnail-transition: box-shadow 200ms ease-out;
+$thumbnail-radius: $global-radius;
+
+// 34. Title Bar
+// -------------
+
+$titlebar-background: $black;
+$titlebar-color: $white;
+$titlebar-padding: 0.5rem;
+$titlebar-text-font-weight: bold;
+$titlebar-icon-color: $white;
+$titlebar-icon-color-hover: $medium-gray;
+$titlebar-icon-spacing: 0.25rem;
+
+// 35. Tooltip
+// -----------
+
+$has-tip-font-weight: $global-weight-bold;
+$has-tip-border-bottom: dotted 1px $dark-gray;
+$tooltip-background-color: $black;
+$tooltip-color: $white;
+$tooltip-padding: 0.75rem;
+$tooltip-font-size: $small-font-size;
+$tooltip-pip-width: 0.75rem;
+$tooltip-pip-height: $tooltip-pip-width * 0.866;
+$tooltip-radius: $global-radius;
+
+// 36. Top Bar
+// -----------
+
+$topbar-padding: 0.5rem;
+$topbar-background: $light-gray;
+$topbar-submenu-background: $topbar-background;
+$topbar-title-spacing: 1rem;
+$topbar-input-width: 200px;
+$topbar-unstack-breakpoint: medium;
+
+
+
+//participation
+
+// Table of Contents
+//
+// 01. Votes and supports
+// 02. New participation
+// 03. Show participation
+// 04. List participation
+// 05. Featured
+// 06. Proposals successfull
+//
+
+// 01. Votes and supports
+// ----------------------
+
+@mixin votes {
+  border-top: 1px solid $border;
+  margin-top: $line-height;
+  padding: $line-height 0;
+  position: relative;
+
+  @include breakpoint(medium) {
+    border-left: 1px solid $border;
+    border-top: 0;
+    margin-top: 0;
+    padding-top: $line-height*2;
+  }
+
+  .icon-like, .icon-unlike {
+    background: white;
+    border: 2px solid $text-light;
+    border-radius: rem-calc(3);
+    color: $text-light;
+    display: inline-block;
+    font-size: rem-calc(30);
+    line-height: rem-calc(30);
+    padding: rem-calc(3) rem-calc(6);
+    position: relative;
+
+    &:hover, &:active {
+      color: white;
+      cursor: pointer;
+      opacity: 1 !important;
+    }
+  }
+
+  .icon-like {
+
+    &:hover, &:active {
+      background: $like;
+      border: 2px solid $like;
+    }
+  }
+
+  .icon-unlike {
+
+    &:hover, &:active {
+      background: $unlike;
+      border: 2px solid $unlike;
+    }
+  }
+
+  .like, .unlike {
+    line-height: rem-calc(48);
+    vertical-align: super;
+    text-decoration: none;
+
+    span.percentage {
+      color: $text;
+      display: inline-block;
+      font-size: $small-font-size;
+      line-height: $line-height*2;
+      padding-right: $line-height/2;
+      vertical-align: top;
+
+      @include breakpoint(medium) {
+        display: block;
+        line-height: $line-height;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .voted {
+
+    .icon-like, .icon-unlike {
+      color: white;
+    }
+
+    .icon-like {
+      background: $like;
+      border: 2px solid $like;
+    }
+
+    .icon-unlike {
+      background: $unlike;
+      border: 2px solid $unlike;
+    }
+  }
+
+  .no-voted {
+
+    .icon-like, .icon-unlike {
+      opacity: .3;
+    }
+  }
+
+  .total-votes {
+    font-weight: bold;
+    float: right;
+    line-height: $line-height*2;
+
+    @include breakpoint(medium) {
+      display: block;
+      float: none;
+    }
+  }
+
+  .divider {
+    margin: 0 rem-calc(6);
+  }
+}
+
+@mixin supports {
+  padding: $line-height 0;
+  position: relative;
+
+  .progress {
+    background: lighten($proposals, 35%);
+    border: 1px solid lighten($proposals, 35%);
+    height: rem-calc(14);
+    position: relative;
+
+    .meter {
+      background: $proposals;
+      border-radius: 0;
+      border-bottom-right-radius: rem-calc(3);
+      border-top-right-radius: rem-calc(3);
+      display: block;
+      height: $line-height/2;
+    }
+  }
+
+  .percentage {
+    color: $text;
+    font-size: $tiny-font-size;
+    position: absolute;
+    right: 6px;
+    top: -2px;
+    vertical-align: top;
+  }
+
+  abbr {
+    color: $text-medium;
+
+    &[title] {
+      border-bottom: 1px dotted $text-medium;
+    }
+  }
+
+  .button-support {
+    background: $proposals;
+    color: $text;
+    display: inline-block;
+    font-size: $small-font-size;
+    margin-top: rem-calc(12);
+
+    &:hover, &:active {
+      background: lighten($proposals, 25%);
+      cursor: pointer;
+    }
+  }
+
+  .total-supports {
+    color: $text;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+
+    span {
+      display: block;
+      font-size: $small-font-size;
+      font-weight: normal;
+    }
+  }
+
+  .divider {
+    margin: 0 rem-calc(6);
+  }
+
+  .supported {
+    color: $text;
+    margin-top: rem-calc(12);
+  }
+}
+
+.supports-container {
+  border-top: 1px solid $border;
+
+  @include breakpoint(medium) {
+    border-left: 1px solid $border;
+    border-top: 0;
+  }
+}
+
+.participation-not-allowed {
+  background: $warning-bg;
+  color: $color-warning;
+  height: 100%;
+  left: 0;
+  line-height: $line-height;
+  padding: $line-height $line-height/2;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  p {
+    color: $color-warning !important;
+    margin: 0 rem-calc(12);
+    text-align: left;
+  }
+
+  a {
+    color: $color-warning !important;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.reply .participation-not-allowed {
+  padding-right: $line-height/2;
+  padding-top: $line-height/6;
+  text-align: right;
+}
+
+// 02. New participation
+// ---------------------
+
+.debate-form,
+.proposal-form,
+.spending-proposal-form {
+
+  .icon-debates, .icon-proposals, .icon-budget {
+    font-size: rem-calc(50);
+    line-height: $line-height;
+    opacity: .5;
+  }
+
+  .icon-debates {
+    color: $debates;
+  }
+
+  .icon-proposals {
+    color: $proposals;
+  }
+
+  .icon-budget {
+    color: $budget;
+  }
+
+  .recommendations {
+    list-style-type: none;
+    margin-left: 0;
+    margin-top: $line-height;
+
+    li {
+      font-size: $small-font-size;
+      margin: $line-height/2 0;
+
+      &:before {
+        content: "l ";
+        font-family: "icons" !important;
+      }
+    }
+  }
+}
+
+.debate-form {
+
+  .recommendations li:before {
+    color: $debates;
+  }
+}
+
+.proposal-form {
+
+  .recommendations li:before {
+    color: $proposals;
+  }
+}
+
+// 03. Show participation
+// ----------------------
+
+.debate-show,
+.proposal-show,
+.investment-project-show {
+
+  p {
+    word-wrap: break-word;
+  }
+
+  .callout.proposal-retired {
+    font-size: $base-font-size;
+  }
+
+  .social-share-full .social-share-button {
+    display:inline;
+  }
+
+  .whatsapp:before {
+    background-color: #43d854;
+    color: white;
+    font-size: 1.7em;
+    margin-left: rem-calc(0.5);
+    padding: rem-calc(9.5) rem-calc(9.8);
+    vertical-align: rem-calc(10);
+  }
+
+  .edit-debate, .edit-proposal {
+    margin-bottom: 0;
+  }
+
+  .debate-info, .proposal-info, .investment-project-info {
+    clear: both;
+    color: $text-medium;
+    font-size: $small-font-size;
+    min-height: $line-height*2;
+    position: relative;
+
+    a {
+      color: $text-medium;
+    }
+
+    p {
+      font-size: $small-font-size;
+      line-height: $line-height;
+      margin: 0;
+    }
+
+    .author-deleted {
+      left: 0;
+      top: 4px;
+    }
+
+    .author.deleted {
+      margin-left: rem-calc(48);
+    }
+  }
+
+  .debate-description, .proposal-description {
+    font-size: rem-calc(15);
+    line-height: rem-calc(30);
+  }
+
+  ul, ol {
+    margin: rem-calc(12) 0;
+
+    li {
+      font-size: rem-calc(15);
+      margin-bottom: rem-calc(15);
+    }
+
+    &.tags, &.geozone {
+
+      li {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .author-photo {
+    line-height: $line-height*2;
+    margin-right: rem-calc(6);
+    vertical-align: middle;
+    width: 32px;
+  }
+
+  .author {
+    font-weight: bold;
+
+    a {
+      color: $link !important;
+
+      &:hover {
+        color: $link-hover !important;
+      }
+    }
+  }
+
+  aside {
+
+    h2 {
+      border-top: 2px solid $brand;
+      display: inline-block;
+      font-size: rem-calc(16);
+      margin: -1px 0 rem-calc(12);
+      padding-top: rem-calc(6);
+      text-transform: uppercase;
+    }
+  }
+
+  blockquote {
+    margin-top: rem-calc(12);
+    padding-top: 0;
+    font-size: rem-calc(15);
+    line-height: rem-calc(30);
+  }
+
+  .document-link, .video-link {
+    border: 1px solid $border;
+    display: block;
+    margin: $line-height/2 0;
+    padding: $line-height/2;
+    position: relative;
+
+    a {
+      padding-left: rem-calc(24);
+    }
+
+    :before {
+      color: $brand;
+      content: "G";
+      font-family: "icons" !important;
+      font-size: rem-calc(24);
+      left: rem-calc(6);
+      padding-top: rem-calc(3);
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .video-link {
+
+    :before {
+      color: #CC181E;
+      content: "D";
+    }
+  }
+
+  .supports {
+    @include supports;
+  }
+
+  .leave-comment {
+    display: inline-block;
+    margin-top: rem-calc(24);
+  }
+
+  .tags {
+    display: block;
+
+    a {
+      margin-right: rem-calc(6);
+    }
+  }
+}
+
+.bullet {
+  color: $border;
+}
+
+.investment-project-show p {
+  word-break: break-word;
+}
+
+.proposal-show, .investment-project-show {
+
+  .supports {
+    padding: $line-height/2 0 0;
+  }
+
+  .share-supported {
+    display: none;
+  }
+}
+
+// 04. List participation
+// ----------------------
+
+.debates-list, .proposals-list, .investment-projects-list {
+
+  @include breakpoint(medium) {
+    margin-bottom: rem-calc(48);
+  }
+}
+
+.investment-projects-list {
+
+  @include breakpoint(medium) {
+    min-height: $line-height*15;
+  }
+}
+
+.debate, .proposal, .investment-project {
+  margin: $line-height/4 0;
+
+  .panel {
+    background: white;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 0;
+    box-shadow: 0px 1px 3px 0 $border;
+    margin-bottom: rem-calc(12);
+    min-height: rem-calc(192);
+    padding: rem-calc(12) rem-calc(12) 0 rem-calc(12);
+
+    @include breakpoint(medium) {
+      margin-bottom: rem-calc(-1);
+      padding-bottom: rem-calc(12);
+    }
+
+    .label-debate, .label-proposal, .label-investment-project {
+      background: none;
+      clear: both;
+      display: block;
+      font-size: rem-calc(12);
+      font-weight: bold;
+      line-height: $line-height;
+      padding-bottom: 0;
+      padding-left: 0;
+      padding-top: 0;
+      text-transform: uppercase;
+    }
+
+    .label-debate {
+      color: $debates;
+    }
+
+    .label-proposal {
+      color: $proposals-dark;
+    }
+
+    .label-investment-project {
+      color: $budget;
+    }
+
+    h3 {
+      font-weight: bold;
+      margin: 0;
+
+      a {
+        color: $text;
+      }
+    }
+
+    .debate-content, .proposal-content, .investment-project-content {
+      margin: 0;
+      min-height: rem-calc(180);
+      position: relative;
+
+      .tags {
+        display: block;
+      }
+    }
+
+    .icon-debates, .icon-proposals, .icon-budget {
+      font-size: rem-calc(18);
+      line-height: $line-height;
+      margin-left: rem-calc(6);
+      top: 0;
+    }
+
+    .icon-debates {
+      color: $debates;
+    }
+
+    .icon-proposals {
+      color: $proposals-dark;
+    }
+
+    .icon-budget {
+      color: $budget;
+      font-size: $small-font-size;
+    }
+
+    .debate-info, .proposal-info, .investment-project-info {
+      color: $text-medium;
+      font-size: $small-font-size;
+      margin: rem-calc(6) 0 0;
+
+      .icon-comments {
+        font-size: rem-calc(16);
+        vertical-align: top;
+      }
+
+      a {
+        color: $text-medium;
+      }
+    }
+
+    .debate-description, .proposal-description, .investment-project-description {
+      color: $text;
+      font-size: rem-calc(13);
+      height: rem-calc(72);
+      line-height: $line-height;
+      margin-bottom: rem-calc(12);
+      margin-top: 0;
+      overflow: hidden;
+      position: relative;
+
+      a {
+        color: $text;
+      }
+
+      ul, ol {
+
+        li {
+          font-size: rem-calc(13);
+          margin-bottom: rem-calc(12);
+        }
+      }
+    }
+
+    .truncate {
+      background: image-url('truncate.png');
+      background-repeat: repeat-x;
+      bottom: 0;
+      height: 24px;
+      position: absolute;
+      width: 100%;
+    }
+
+    p {
+      color: $text;
+    }
+  }
+
+  .divider {
+    display: none;
+  }
+
+  @include breakpoint(medium) {
+    .divider {
+      display: inline-block;
+    }
+  }
+}
+
+.more-info {
+  clear: both;
+  color: $text-medium;
+  font-size: $small-font-size;
+
+  a {
+    color: $text-medium;
+  }
+}
+
+.debate, .debate-show {
+
+  .votes {
+    @include votes;
+
+    .against {
+      margin-left: $line-height/4;
+    }
+
+    @include breakpoint(medium) {
+      text-align: center;
+    }
+  }
+}
+
+.debate-show .votes {
+  border: 0;
+  padding: $line-height/2 0;
+}
+
+.proposal {
+
+  .supports {
+    @include supports;
+  }
+}
+
+.investment-project, .investment-project-show {
+
+  .supports {
+    @include supports;
+
+    .investment-project-amount {
+      color: $budget;
+      font-size: rem-calc(20);
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    .button-support {
+      background: $budget;
+      color: white;
+
+      &:hover {
+        background: $budget-hover;
+        color: white;
+        cursor: pointer;
+      }
+
+      &:active {
+        opacity: .75;
+      }
+    }
+
+    .total-supports {
+      color: $budget;
+      font-size: $base-font-size;
+      font-weight: bold;
+    }
+
+    .remove .icon-check-circle {
+      display: block;
+      font-size: rem-calc(70);
+      line-height: rem-calc(70);
+    }
+  }
+}
+
+.proposals-summary {
+
+  .panel {
+    min-height: 0;
+  }
+}
+
+.investment-project .supports .total-supports.no-button,
+.investment-project-show .supports .total-supports.no-button {
+  display: block;
+  margin-top: $line-height*1.5;
+}
+
+// 05. Featured
+// ------------
+
+.featured-debates, .featured-proposals,
+.proposals-ballot, .proposals-ballot-list {
+  padding: $line-height/2 0;
+
+  @include breakpoint(medium) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  h2 {
+    font-size: $small-font-size;
+    line-height: $line-height;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin-bottom: 0;
+
+    a {
+      color: $text;
+      font-size: rem-calc(24);
+    }
+  }
+
+  a, .info {
+    color: lighten($text, 15%);
+    font-size: $small-font-size;
+  }
+
+}
+
+.featured-debates {
+  background: $highlight;
+}
+
+.featured-proposals {
+  background: $featured;
+
+  .proposal-featured {
+    min-height: $line-height*3.5;
+  }
+
+  .supports {
+    @include supports;
+    background: none;
+    border: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+
+    &:after {
+      content: none;
+    }
+
+    .total-supports {
+      display: none;
+    }
+
+    .button-support {
+      background: $text;
+      color: $featured;
+      margin-top: 0;
+
+      &:hover {
+        background: white;
+        color: $text;
+      }
+    }
+
+    .participation-not-allowed {
+      background: $featured;
+      font-size: $small-font-size;
+      padding-top: 0;
+
+      a {
+        color: $color-warning;
+      }
+
+      p {
+        color: $color-warning;
+        font-size: $small-font-size;
+        line-height: $line-height;
+      }
+    }
+
+    .supported {
+      margin-top: 0;
+      font-size: $small-font-size;
+    }
+
+    .share-supported {
+
+      .ssb-twitter,
+      .ssb-facebook,
+      .ssb-google_plus {
+        background: none;
+        color: $text;
+        height: rem-calc(33) !important;
+
+
+        &:before {
+          font-size: rem-calc(18);
+          line-height: rem-calc(33);
+        }
+      }
+    }
+  }
+}
+
+// 06. Proposals successfull
+// -------------------------
+
+.dark-heading {
+  background: darken($brand, 20%);
+  color: white;
+
+  @include breakpoint(medium) {
+    padding-bottom: $line-height;
+  }
+
+  p {
+
+    &.title {
+      color: #FFD200;
+    }
+
+    &.title-date {
+      font-size: rem-calc(24);
+      font-weight: bold;
+    }
+  }
+
+  .info {
+    background: darken($brand, 15%);
+    padding-top: $line-height;
+
+    @include breakpoint(medium) {
+      border-top: rem-calc(6) solid #FFD200;
+    }
+  }
+}
+
+.featured-proposals-ballot-banner {
+  background: #2D3E50 image-url("ballot_tiny.gif") no-repeat;
+  background-position: 75% 0;
+  position: relative;
+
+  h2, a:hover h2 {
+    color: #FFD200 !important;
+  }
+
+  p {
+    color: white;
+  }
+
+  @include breakpoint(medium) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  @include breakpoint(large) {
+    background: #2D3E50 image-url("ballot.gif") no-repeat;
+    background-position: 90% 0;
+  }
+}
+
+.featured-proposals-ballot-banner,
+.successfull .panel {
+
+  .icon-successfull {
+    border-right: 60px solid #FFD200;
+    border-top: 0;
+    border-bottom: 60px solid transparent;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+
+    &:after {
+      color: #1B254C;
+      content: "\59";
+      font-family: "icons" !important;
+      left: 34px;
+      position: absolute;
+      top: 5px;
+    }
+  }
+}
+
+.proposals-ballot-list {
+
+  .proposal-sucessfull {
+    background: white;
+    border-top: 1px solid $border;
+    padding: $line-height 0;
+    position: relative;
+  }
+}
+
+.successfull {
+
+  .panel {
+    position: relative;
+  }
+
+  .truncate {
+    display: none;
+  }
+
+  .message {
+    @include supports;
+    background: none;
+    border-top: 0;
+
+    @include breakpoint(medium) {
+      border-left: 1px solid $border;
+      margin: $line-height rem-calc(-25) 0 rem-calc(12);
+    }
+  }
+}

@@ -419,7 +419,7 @@
     }
 
     :before {
-      color: $brand;
+      color: #007BB7;
       content: "G";
       font-family: "icons" !important;
       font-size: rem-calc(24);
@@ -843,7 +843,7 @@
 // -------------------------
 
 .dark-heading {
-  background: darken($brand, 20%);
+  background: #2D3E50;
   color: white;
 
   @include breakpoint(medium) {
@@ -863,7 +863,7 @@
   }
 
   .info {
-    background: darken($brand, 15%);
+    background: #314253;
     padding-top: $line-height;
 
     @include breakpoint(medium) {
