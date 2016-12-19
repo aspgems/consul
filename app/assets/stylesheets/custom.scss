@@ -39,3 +39,11 @@
     background: darken($brand, 15%) image-url("ballot.gif") no-repeat;
   }
 }
+
+.verify-account {
+  .pending-verification {
+    background: $info-bg;
+    color: $color-info;
+    line-height: $line-height*2;
+  }
+}
