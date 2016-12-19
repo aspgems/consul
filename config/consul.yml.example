@@ -1,5 +1,11 @@
 default: &default
   mailer_sender: 'noreply@consul.es'
+  smtp:
+    domain:               chiloeches-consul.dev.aspgems.com # the domain your emails will come from
+    address:              localhost  # SMTP server used to send emails
+    port:                 25
+    authentication:       plain
+    enable_starttls_auto: false
 
 development:
   <<: *default
