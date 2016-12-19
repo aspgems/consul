@@ -1,0 +1,23 @@
+namespace :deploy do
+  desc 'Prepare deploy uploading master/integration code to remote integration/production branch'
+  task :prepare do
+    run_locally do
+      current_branch = capture(:git, 'rev-parse', '--abbrev-ref', 'HEAD')
+      branch = fetch(:branch)
+      merge_branch = branch == 'integration' ? 'master' : 'integration'
+      begin
+        execute :git, :checkout, branch
+        execute :git, :pull, :origin, branch
+        if test :git, :merge, '--ff-only', merge_branch
+          execute :git, :push, :origin, branch
+        else
+          raise 'No fast forward strategy can be used for merging. Please, fix your branches before executing this task'
+        end
+      rescue Interrupt => e
+        puts "\nInterrupted by user"
+      ensure
+        execute :git, :checkout, current_branch
+      end
+    end
+  end
+end
