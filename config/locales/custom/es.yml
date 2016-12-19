@@ -1,0 +1,8 @@
+---
+es:
+  account:
+    show:
+      account_pending_verification: Cuenta pendiente de verificar
+  layouts:
+    footer:
+      copyright: Ayuntamiento de Chiloeches, %{year}

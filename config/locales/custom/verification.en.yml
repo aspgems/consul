@@ -1,0 +1,7 @@
+---
+en:
+  verification:
+    residence:
+      create:
+        flash:
+          success: Residence is pending verification

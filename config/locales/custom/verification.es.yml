@@ -1,0 +1,7 @@
+---
+es:
+  verification:
+    residence:
+      create:
+        flash:
+          success: Residencia pendiente de verificar

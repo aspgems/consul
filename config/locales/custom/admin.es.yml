@@ -1,0 +1,12 @@
+---
+es:
+  admin:
+    actions:
+      verify: Verificar usuario
+    menu:
+      incomplete_verifications: Verificaciones pendientes
+    verifications:
+      index:
+        title: Verificaciones pendientes
+      user_search:
+        placeholder: Buscar usuario por nombre o email o documento de identidad
