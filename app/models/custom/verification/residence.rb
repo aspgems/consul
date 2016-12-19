@@ -3,27 +3,41 @@ require_dependency Rails.root.join('app', 'models', 'verification', 'residence')
 
 class Verification::Residence
 
-  validate :postal_code_in_madrid
-  validate :residence_in_madrid
+  # Validations
+  validate :postal_code_in_city
 
-  def postal_code_in_madrid
+  # Callbacks
+  before_validation :set_terms_of_service # HACK
+
+  def postal_code_in_city
     errors.add(:postal_code, I18n.t('verification.residence.new.error_not_allowed_postal_code')) unless valid_postal_code?
   end
 
-  def residence_in_madrid
-    return if errors.any?
+  def allowed_age
+    return if errors[:date_of_birth].any?
+    errors.add(:date_of_birth, I18n.t('verification.residence.new.error_not_allowed_age')) unless self.date_of_birth <= 16.years.ago
+  end
 
-    unless residency_valid?
-      errors.add(:residence_in_madrid, false)
-      store_failed_attempt
-      Lock.increase_tries(user)
-    end
+  def geozone
+    # Nothing to do
+  end
+
+  def gender
+    # Nothing to do
   end
 
   private
 
-    def valid_postal_code?
-      postal_code =~ /^280/
+    def set_terms_of_service
+      self.terms_of_service = "1"
     end
 
+    def valid_postal_code?
+      postal_code == "19160"
+    end
+
+    def call_census_api
+      # Nothing to do
+      true
+    end
 end

@@ -113,10 +113,10 @@ Rails.application.routes.draw do
 
   scope module: :verification do
     resource :residence, controller: "residence", only: [:new, :create]
-    resource :sms, controller: "sms", only: [:new, :create, :edit, :update]
+    # resource :sms, controller: "sms", only: [:new, :create, :edit, :update]
     resource :verified_user, controller: "verified_user", only: [:show]
-    resource :email, controller: "email", only: [:new, :show, :create]
-    resource :letter, controller: "letter", only: [:new, :create, :show, :edit, :update]
+    # resource :email, controller: "email", only: [:new, :show, :create]
+    # resource :letter, controller: "letter", only: [:new, :create, :show, :edit, :update]
   end
 
   namespace :admin do
@@ -202,7 +202,7 @@ Rails.application.routes.draw do
       get :search, on: :collection
     end
 
-    resources :verifications, controller: :verifications, only: :index do
+    resources :verifications, controller: :verifications, only: [:index, :create] do
       get :search, on: :collection
     end
 
