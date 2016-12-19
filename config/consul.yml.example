@@ -1,0 +1,11 @@
+default: &default
+  mailer_sender: 'noreply@consul.es'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production: &production
+  mailer_sender: 'noreply@consul.es'
