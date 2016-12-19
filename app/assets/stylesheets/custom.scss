@@ -20,16 +20,22 @@
       color: $brand;
     }
   }
-
+}
 
 // 06. Proposals successfull
 // -------------------------
 
 .dark-heading {
   background: darken($brand, 20%);
-  }
 
   .info {
     background: darken($brand, 15%);
+  }
+}
+.featured-proposals-ballot-banner {
+  background: darken($brand, 15%) image-url("ballot_tiny.gif") no-repeat;
+
+  @include breakpoint(large) {
+    background: darken($brand, 15%) image-url("ballot.gif") no-repeat;
   }
 }
