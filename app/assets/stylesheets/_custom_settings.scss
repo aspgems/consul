@@ -60,6 +60,8 @@ $color-alert:       #A94442;
 // 1. Global
 // ---------
 
+$primary-color: #79AA64;
+
 $foundation-palette: (
   primary: #79AA64,
   secondary: #777,
@@ -67,3 +69,14 @@ $foundation-palette: (
   warning: #ffae00,
   alert: #ec5840,
 );
+
+
+
+//button
+
+.button {
+  background: $brand;
+  &:hover {
+    background: $primary-color!important;
+  }
+}
