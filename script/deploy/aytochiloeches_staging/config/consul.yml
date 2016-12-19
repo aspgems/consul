@@ -1,2 +1,8 @@
 production: &production
   mailer_sender: 'noreply@aytochiloeches.dev.aspgems.com'
+  smtp:
+    domain:               aytochiloeches.dev.aspgems.com # the domain your emails will come from
+    address:              localhost  # SMTP server used to send emails
+    port:                 25
+    authentication:       plain
+    enable_starttls_auto: false
