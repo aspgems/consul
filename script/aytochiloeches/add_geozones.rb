@@ -1,0 +1,1 @@
+["Nucleo Urbano","Urbanizaciones","Poligonos Industriales"].each{|zone| Geozone.create(name: zone)}

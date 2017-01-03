@@ -3,6 +3,8 @@ es:
   account:
     show:
       account_pending_verification: Cuenta pendiente de verificar
+  geozones:
+    none: Todo el municipio
   layouts:
     footer:
       copyright: Ayuntamiento de Chiloeches, %{year}

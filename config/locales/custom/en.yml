@@ -3,6 +3,8 @@ en:
   account:
     show:
       account_pending_verification: Account pending verification
+  geozones:
+    none: All municipality
   layouts:
     footer:
       copyright: Ayuntamiento de Chiloeches, %{year}
