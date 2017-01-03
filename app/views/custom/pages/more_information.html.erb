@@ -11,6 +11,13 @@
         <% end %>
       </li>
       <li>
+        <%= link_to page_path('debates_info') do %>
+          <%= t('pages.more_information.titles.debates_info') %>
+          <br>
+          <span><%= t('pages.more_information.description.debates_info') %></span>
+        <% end %>
+      </li>
+      <li>
       <%= link_to page_path('proposals_info') do %>
           <%= t('pages.more_information.titles.proposals_info') %>
           <br>

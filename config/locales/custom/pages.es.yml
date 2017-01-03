@@ -2,5 +2,9 @@
 es:
   pages:
     more_information:
+      description:
+        debates_info: "Inicia tus propios debates y participa en los de otros usuarios"
+        detailed_process: "Explicación detallada del proceso"
       titles:
+        debates_info: "¿Cómo funcionan los debates?"
         how_it_works: "¿Cómo funciona el portal Decide Chiloeches?"
