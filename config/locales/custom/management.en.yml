@@ -1,0 +1,7 @@
+---
+en:
+  management:
+    spending_proposals:
+      filters:
+        unfeasible: Unfeasible spending proposals
+        by_geozone: "Spending proposals with scope: %{geozone}"

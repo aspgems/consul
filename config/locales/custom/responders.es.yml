@@ -1,0 +1,10 @@
+---
+es:
+  flash:
+    actions:
+      create:
+        spending_proposal: "Propuesta de gasto creada correctamente. Puedes acceder a ella desde %{activity}"
+      update:
+        spending_proposal: "Propuesta de gasto actualizada correctamente."
+      destroy:
+        spending_proposal: "Propuesta de gasto eliminada."

@@ -1,0 +1,6 @@
+es:
+  settings:
+    feature:
+      spending_proposals: Propuestas de gasto
+      spending_proposal_features:
+        voting_allowed: Votaciones sobre propuestas de gasto

@@ -3,3 +3,20 @@ en:
   admin:
     actions:
       verify: Verify user
+    spending_proposals:
+      index:
+        summary_link: "Spending proposals summary"
+        title: Valuator summary for spending proposals
+      show:
+        heading: Spending proposal %{id}
+      summary:
+        title: Summary for spending proposals
+        title_proposals_with_supports: Summary for spending proposals with supports
+    stats:
+      show:
+        summary:
+          spending_proposals: Spending proposals
+        spending_proposals_title: Spending proposals
+    valuators:
+      summary:
+        title: Valuator summary for spending proposals

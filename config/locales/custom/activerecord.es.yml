@@ -1,0 +1,6 @@
+es:
+  activerecord:
+    models:
+      spending_proposal:
+        one: "Propuesta de gasto"
+        other: "Propuestas de gasto"

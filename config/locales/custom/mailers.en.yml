@@ -1,0 +1,7 @@
+---
+en:
+  mailers:
+    unfeasible_spending_proposal:
+      new_href: "new spending proposal"
+      reconsider_html: "If you believe that the rejected proposal meets the requirements to be an spending proposal, you can communicate this, within 48 hours, responding to the email address examples@consul.es. Including the code %{code} in the subject of the email."
+      subject: "Your spending proposal '%{code}' has been marked as unfeasible"

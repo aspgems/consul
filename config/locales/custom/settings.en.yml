@@ -1,0 +1,6 @@
+en:
+  settings:
+    feature:
+      spending_proposals: Spending proposals
+      spending_proposal_features:
+        voting_allowed: Voting on spending proposals

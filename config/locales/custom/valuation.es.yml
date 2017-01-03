@@ -1,0 +1,10 @@
+---
+es:
+  valuation:
+    menu:
+      spending_proposals: Propuestas de gasto
+    spending_proposals:
+      index:
+        title: Propuestas de gasto para presupuestos participativos
+      show:
+        heading: Propuesta de gasto
