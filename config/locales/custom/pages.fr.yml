@@ -2,5 +2,11 @@
 fr:
   pages:
     more_information:
+      description:
+        debates_info: "Commencez vos propres débats et participer à d'autres utilisateurs"
+        detailed_process: "Explication détaillée du processus"
       titles:
+        debates_info: "Comment les débats fonctionnent-ils?"
         how_it_works: "Comment marche le portail Décide Chiloeches?"
+  shared:
+    back: Retour
