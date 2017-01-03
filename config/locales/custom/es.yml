@@ -6,3 +6,21 @@ es:
   layouts:
     footer:
       copyright: Ayuntamiento de Chiloeches, %{year}
+  spending_proposals:
+    index:
+      unfeasible: Propuestas de gasto no viables
+      by_geozone: "Propuestas de gasto con ámbito: %{geozone}"
+      search_form:
+        placeholder: Propuestas de gasto...
+      start_spending_proposal: Crea una propuesta de gasto
+    spending_proposal:
+      spending_proposal: Propuesta de gasto
+  users:
+    show:
+      filters:
+        spending_proposals:
+          one: 1 Propuesta de gasto
+          other: "%{count} Propuestas de gasto"
+  votes:
+    spending_proposals:
+      not_verified: Las propuestas de gasto sólo pueden ser apoyadas por usuarios verificados, %{verify_account}.

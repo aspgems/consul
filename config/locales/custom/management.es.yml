@@ -1,0 +1,14 @@
+---
+es:
+  management:
+    menu:
+      create_spending_proposal: Crear propuesta de gasto
+      print_spending_proposals: Imprimir propts. de gasto
+      support_spending_proposals: Apoyar propts. de gasto
+    print:
+      spending_proposals_note: Los presupuestos participativos se invertirán en las propuestas de gasto más apoyadas.
+    spending_proposals:
+      create: Crear propuesta de gasto
+      filters:
+        unfeasible: Propuestas de gasto no viables
+        by_geozone: "Propuestas de gasto con ámbito: %{geozone}"

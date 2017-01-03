@@ -1,0 +1,6 @@
+---
+en:
+  flash:
+    actions:
+      update:
+        spending_proposal: "Spending proposal updated successfully."

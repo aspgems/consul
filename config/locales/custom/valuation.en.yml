@@ -1,0 +1,8 @@
+---
+en:
+  valuation:
+    spending_proposals:
+      index:
+        title: Spending proposals for participatory budgeting
+      show:
+        heading: Spending proposals
