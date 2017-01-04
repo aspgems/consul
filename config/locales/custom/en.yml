@@ -9,6 +9,7 @@ en:
     footer:
       copyright: Ayuntamiento de Chiloeches, %{year}
     header:
+      open_gov: Decide Chiloeches
       spending_proposals: Participatory budgeting
   spending_proposals:
     index:

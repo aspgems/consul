@@ -8,6 +8,8 @@ es:
   layouts:
     footer:
       copyright: Ayuntamiento de Chiloeches, %{year}
+    header:
+      open_gov: Decide Chiloeches
   spending_proposals:
     index:
       unfeasible: Propuestas de gasto no viables
