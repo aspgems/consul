@@ -1,0 +1,31 @@
+<div class="row margin-top">
+  <div class="small-12 medium-3 column">
+    <%= render "shared/back_link" %>
+
+    <ul class="vertical menu margin-top">
+      <li><a href="#i"><strong><%=t('pages.more_information.description.detailed_process')%></strong></a></li>
+    </ul>
+  </div>
+
+  <div class="small-12 medium-9 column">
+    <h1><%=t('pages.more_information.titles.proposals_info')%></h1>
+    <p><%=t('pages.more_information.proposals_info.summary_1')%></p>
+    <p><%=t('pages.more_information.proposals_info.summary_2')%></p>
+    <p><%=t('pages.more_information.proposals_info.summary_3')%></p>
+    <p><%=t('pages.more_information.proposals_info.summary_4')%></p>
+    <p><%=t('pages.more_information.proposals_info.summary_5')%></p>
+
+
+    <h2 id="i"><%=t('pages.more_information.description.detailed_process')%></h2>
+    <p><%=t('pages.more_information.proposals_info.detail_1')%></p>
+    <p><%=t('pages.more_information.proposals_info.detail_2')%></p>
+    <p><%=t('pages.more_information.proposals_info.detail_3')%></p>
+    <p><%=t('pages.more_information.proposals_info.detail_4')%></p>
+    <p><%=t('pages.more_information.proposals_info.detail_5')%></p>
+    <ol>
+      <li><%= markdown t('pages.more_information.proposals_info.detail_phase_1')%></li>
+      <li><%= markdown t('pages.more_information.proposals_info.detail_phase_2')%></li>
+    </ol>
+    <p><%=t('pages.more_information.proposals_info.detail_6')%></p>
+  </div>
+</div>

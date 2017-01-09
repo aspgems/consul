@@ -43,9 +43,11 @@
 
       <%= render 'shared/order_links', i18n_namespace: "debates.index" %>
 
-      <div class="show-for-small-only">
-        <%= link_to t("debates.index.start_debate"), new_debate_path, class: 'button expanded' %>
-      </div>
+      <% if @debates && @debates.size > 1 %>
+        <div class="show-for-small-only">
+          <%= link_to t("debates.index.start_debate"), new_debate_path, class: 'button expanded' %>
+        </div>
+      <% end %>
 
       <%= render @debates %>
       <%= paginate @debates %>
