@@ -16,6 +16,8 @@ es:
       by_geozone: "Propuestas de gasto con ámbito: %{geozone}"
       search_form:
         placeholder: Propuestas de gasto...
+      sidebar:
+        feasible: Viables
       start_spending_proposal: Crea una propuesta de gasto
     spending_proposal:
       spending_proposal: Propuesta de gasto
