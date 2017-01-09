@@ -46,4 +46,8 @@
     color: $color-info;
     line-height: $line-height*2;
   }
+
+.auth-page {
+  background: $brand image-url("auth_bg.jpg") no-repeat top center fixed;
+  background-size: cover;
 }
