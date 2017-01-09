@@ -5,6 +5,15 @@ en:
       description:
         debates_info: "Start your own debates and participate in those of other users"
         detailed_process: "Detailed explanation of the process"
+        revocation_info: "Revocation request process"
+        voting_info: "Voting of proposals with the necessary supports"
+      how_it_works:
+        debates_section: "Debates section"
+        proposals_section: "Proposals section"
+        votings_section: "Votings section"
       titles:
         debates_info: "How do debates work?"
-        how_it_works: How does the Chiloeches Decide Portal works?
+        how_it_works: "How does the \"Decide Chiloeches\" Portal works?"
+        participation: "How can I participate in the portal?"
+        revocation_info: "Revocatory proposals to the Mayor"
+        voting_info: "How do the voting work?"
