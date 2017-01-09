@@ -22,15 +22,18 @@
         <% end %>
       </div>
 
-      <div class="show-for-small-only">
-        <%= link_to t("spending_proposals.index.start_spending_proposal"), new_spending_proposal_path, class: 'button expanded' %>
-      </div>
+      <% if @spending_proposals && @spending_proposals.size > 1 %>
+        <div class="show-for-small-only">
+          <%= link_to t("spending_proposals.index.start_spending_proposal"), new_spending_proposal_path, class: 'button expanded' %>
+        </div>
+      <% end %>
       <%= render partial: 'spending_proposals/spending_proposal', collection: @spending_proposals %>
       <%= paginate @spending_proposals %>
     </div>
 
     <div class="small-12 medium-3 column">
       <aside id="sidebar" class="margin-bottom">
+        <%= link_to t("spending_proposals.index.start_spending_proposal"), new_spending_proposal_path, class: 'button expanded' %>
         <%= render 'sidebar' %>
       </aside>
     </div>
