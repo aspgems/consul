@@ -5,8 +5,13 @@ fr:
       description:
         debates_info: "Commencez vos propres débats et participer à d'autres utilisateurs"
         detailed_process: "Explication détaillée du processus"
+        revocation_info: "Processus de demande de révocatoire"
+        voting_info: "Vote sur les propositions avec le soutien nécessaire"
       titles:
         debates_info: "Comment les débats fonctionnent-ils?"
-        how_it_works: "Comment marche le portail Décide Chiloeches?"
+        how_it_works: "Comment marche le portail \"Décide Chiloeches\"?"
+        participation: "Comment puis-je participer au portail?"
+        revocation_info: "Propositions révocatoire pour le Maire"
+        voting_info: "Comment les évaluations fonctionnent-ils?"
   shared:
     back: Retour

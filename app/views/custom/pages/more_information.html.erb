@@ -11,6 +11,13 @@
         <% end %>
       </li>
       <li>
+        <%= link_to page_path('participation') do %>
+          <%= t('pages.more_information.titles.participation') %>
+          <br>
+          <span><%= t('pages.more_information.description.participation') %></span>
+        <% end %>
+      </li>
+      <li>
         <%= link_to page_path('debates_info') do %>
           <%= t('pages.more_information.titles.debates_info') %>
           <br>
@@ -25,11 +32,18 @@
       <% end %>
       </li>
       <li>
-      <%= link_to page_path('spending_proposals_info') do %>
-          <%= t('pages.more_information.titles.spending_proposals_info') %>
+      <%= link_to page_path('voting_info') do %>
+          <%= t('pages.more_information.titles.voting_info') %>
           <br>
-          <span><%= t('pages.more_information.description.spending_proposals_info') %></span>
+          <span><%= t('pages.more_information.description.voting_info') %></span>
       <% end %>
+      </li>
+      <li>
+        <%= link_to page_path('revocation_info') do %>
+          <%= t('pages.more_information.titles.revocation_info') %>
+          <br>
+          <span><%= t('pages.more_information.description.revocation_info') %></span>
+        <% end %>
       </li>
       <li>
       <%= link_to page_path('participation_world') do %>

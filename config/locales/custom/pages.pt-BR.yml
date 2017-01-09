@@ -5,8 +5,13 @@ pt-BR:
       description:
         debates_info: "Comece suas próprias discussões e participar de outros usuários"
         detailed_process: "Explicação detalhada do processo"
+        revocation_info: "Processo de candidatura de revogatório"
+        voting_info: "Votação de propostas com o apoio necessário"
       titles:
         debates_info: "Como as discussões trabalhar?"
-        how_it_works: "Como funciona o Portal Decide Chiloeches?"
+        how_it_works: "Como funciona o Portal \"Decide Chiloeches\"?"
+        participation: "Como posso participar do portal?"
+        revocation_info: "Propostas revogatórias para o Prefeito"
+        voting_info: "Como funcionam as votaçãos?"
   shared:
     back: Retorno

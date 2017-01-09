@@ -1,0 +1,36 @@
+<div class="row margin-top">
+  <div class="small-12 medium-3 column">
+    <%= render "shared/back_link" %>
+
+    <ul class="menu vertical margin-top">
+        <li>
+          <a href="#i"><strong>1. <%= t('pages.more_information.how_it_works.debates_section') %></strong></a>
+          <a href="#ii"><strong>2. <%= t('pages.more_information.how_it_works.proposals_section') %></strong></a>
+          <a href="#iii"><strong>3. <%= t('pages.more_information.how_it_works.votings_section') %></strong></a>
+        </li>
+    </ul>
+  </div>
+
+  <div class="small-12 medium-9 column">
+    <h1><%= t('pages.more_information.titles.how_it_works') %></h1>
+    <p><%=t('pages.more_information.how_it_works.summary_1')%></p>
+    <p><%=t('pages.more_information.how_it_works.summary_2')%></p>
+    <p><%=t('pages.more_information.how_it_works.summary_3')%></p>
+    <ol>
+      <li><%= markdown t('pages.more_information.how_it_works.summary_step_1')%></li>
+      <li><%= markdown t('pages.more_information.how_it_works.summary_step_2')%></li>
+      <li><%= markdown t('pages.more_information.how_it_works.summary_step_3')%></li>
+      <li><%= markdown t('pages.more_information.how_it_works.summary_step_4')%></li>
+      <li><%= markdown t('pages.more_information.how_it_works.summary_step_5')%></li>
+    </ol>
+    <p><%=t('pages.more_information.how_it_works.summary_4')%></p>
+    <h2 id="i">1. <%=t('pages.more_information.how_it_works.debates_section')%></h2>
+    <p><%=t('pages.more_information.how_it_works.debates_section_p1')%></p>
+    <p><%=t('pages.more_information.how_it_works.debates_section_p2')%></p>
+    <h2 id="ii">2. <%=t('pages.more_information.how_it_works.proposals_section')%></h2>
+    <p><%=t('pages.more_information.how_it_works.proposals_section_p1')%></p>
+    <p><%=t('pages.more_information.how_it_works.proposals_section_p2')%></p>
+    <h2 id="iii">3. <%=t('pages.more_information.how_it_works.votings_section')%></h2>
+    <p><%=t('pages.more_information.how_it_works.votings_section_p1')%></p>
+  </div>
+</div>

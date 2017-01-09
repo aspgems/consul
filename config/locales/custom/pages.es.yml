@@ -5,6 +5,8 @@ es:
       description:
         debates_info: "Inicia tus propios debates y participa en los de otros usuarios"
         detailed_process: "Explicación detallada del proceso"
+        revocation_info: "Proceso de solicitud de revocatorio"
+        voting_info: "Votación de propuestas con los apoyos necesarios"
       debates_info:
         detail_1: "Tod@s l@s usuari@s pueden abrir temas de debate, o sumar sus aportaciones a los debates que ya se encuentren activos por medio de la realización de comentarios. Para crear un nuevo hilo de discusión basta con pulsar en el botón “Crear un debate” y rellenar los campos requeridos."
         detail_2: "Tanto los hilos, como los comentarios podrán ser valorados por cualquier otra persona, de tal manera que será la propia ciudadanía, y nadie en su nombre, la que decida cuáles son los temas más importantes en cada momento. Estos serán presentados en la portada del espacio, pudiendo por supuesto accederse a todos los demás temas en páginas posteriores, o usando otros criterios de ordenación (los temas con más comentarios, los más nuevos, los más controvertidos, etc.)."
@@ -16,6 +18,25 @@ es:
         summary_2: "Cualquier persona u organización puede abrir un hilo de discusión sobre cualquier tema relacionado con la gestión del municipio, creando un área independiente donde la gente podrá debatir sobre el tema propuesto."
         summary_3: "Los diferentes hilos conviven como espacios de debate paralelos entre los que la ciudadanía podrá pasearse, sumándose a los que más les interese."
         summary_4: "Esta sección no pretende ser un foro de discusión general, por lo que los temas a debatir deberán restringirse a asuntos que pertenezcan al límite de actuación del gobierno municipal. Las aportaciones recogidas en los debates están sujetas a un proceso de moderación por parte de la administración del portal, con el objeto de asegurarse que se mantienen el respeto debido y que el debate se ajusta al ámbito del municipio."
+      how_it_works:
+        debates_section: "Sección de \"Debates\""
+        debates_section_p1: "En este espacio puedes abrir un hilo de discusión sobre cualquier tema relacionado con la gestión del municipio, creando un espacio independiente que la gente puede usar para preparar las propuestas que se vayan a someter a votación."
+        debates_section_p2: "De esta manera, en este espacio digital convivirán cada día diferentes espacios de debate entre los que la ciudadanía podrá pasearse, sumándose a los que más les interese."
+        proposals_section: "Sección de \"Propuestas\""
+        proposals_section_p1: "En este espacio puedes proponer iniciativas para su ejecución por parte del gobierno municipal. Las propuestas se someten a una fase de recogida de apoyos tal manera que será la propia ciudadanía, y nadie en su nombre, la que decida cuáles son las propuestas que merecen la pena ser llevadas a cabo."
+        proposals_section_p2: "Una vez que una propuesta alcance los apoyos suficientes, pasa a la siguiente fase de consulta popular, en la que la ciudadanía votará si se lleva a cabo o no."
+        summary_1: "El portal “Decide Chiloeches” ha sido creado para habilitar cauces que permitan a la ciudadanía tomar parte en la toma de decisiones en el gobierno local, más allá del mero ejercicio del voto en las elecciones municipales que se realiza cada cuatro años."
+        summary_2: "El portal sigue los principios y utiliza el software libre de participación ciudadana desarrollado por el Ayuntamiento de Madrid, entidad con la que nuestro Ayuntamiento ha firmado un convenio de colaboración."
+        summary_3: "El mecanismo de propuestas ciudadanas se resume en cinco pasos muy sencillos:"
+        summary_4: "El portal está dividido en tres secciones: “Debates”, “Propuestas” y “Votaciones”."
+        summary_step_1: "<strong>¡Debates!</strong> Intercambias opiniones con el resto de participantes."
+        summary_step_2: "<strong>¡Propones!</strong> Creas una propuesta que se expone en esta web."
+        summary_step_3: "<strong>¡Apoyas!</strong> La gente hace clic en el botón de apoyar tu propuesta."
+        summary_step_4: "<strong>¡Decides!</strong> Si has conseguido suficientes apoyos, la propuesta se somete a votación."
+        summary_step_5: "<strong>¡Se hace!</strong> Si la propuesta es aprobada, el gobierno del Ayuntamiento la asume como propia y la llevará a cabo."
+        votings_section: "Sección de \"Votaciones\""
+        votings_section_p1: "Las propuestas que han alcanzado suficientes apoyos se someten periódicamente a votación por parte de l@s vecin@s. Como parte de su compromiso con los principios de la democracia participativa, el actual gobierno municipal se compromete a poner en marcha en el menor plazo posible todas aquellas propuestas que sean aprobadas en votación con un suficiente nivel de apoyo."
+
       proposals_info:
         detail_1: "Para efectuar una propuesta, basta con que pulses el botón “Crear una propuesta” y rellenes los campos requeridos. La propuesta puede ser tan sencilla como una simple frase, pero te recomendamos detallarla todo lo posible, añadiendo incluso material adicional de forma que sea más completa e interesante."
         detail_2: "Una vez creadas las propuestas, aparecen en el portal para que pueda empezar a recoger apoyos por parte del resto de la ciudadanía. La persona proponente tiene a su disposición las funcionalidades del portal para enviar una notificación solicitando su apoyo a todos l@s usuari@s que hayan activado esta opción en su perfil. Para dar tu apoyo a una de las propuestas, tan solo es necesario que pulses en el botón “Apoyar” que aparece a la derecha de esta."
@@ -30,6 +51,16 @@ es:
         summary_3: "Todas las propuestas quedan expuestas a una fase de recepción de apoyos por parte del resto de vecin@s. Para poder apoyar una propuesta es necesario que tengas más de 16 años, estés empadronad@ en Chiloeches y hayas pasado por el necesario proceso de verificación."
         summary_4: "Las propuestas tienen un tiempo limitado para recabar apoyos. Aquellas que no los consigan en el plazo determinado decaerán y serán eliminadas del portal. Una propuesta rechazada en votación o que no haya alcanzado apoyos suficientes no puede volver a presentarse en un plazo inferior a un año."
         summary_5: "Las propuestas, al igual que los hilos de debate, pueden recibir comentarios, y están igualmente sujetas a un proceso de moderación por parte de la administración del portal."
+      revocation_info:
+        summary_1: "El portal de participación ciudadana no es un sustituto de las elecciones municipales en las que se elige a l@s miembr@s del pleno. Es por ello que no se admiten a votación propuestas de dimisión de l@s Concejales, cuyo cargo ha sido elegido por un periodo de cuatro años por parte de ciudadanía."
+        summary_2: "Sin embargo el equipo de gobierno del Ayuntamiento quiere poner a disposición de la gente el sistema de votaciones del portal “Decide Chiloeches”, como forma de establecer un proceso de solicitud de revocatorio del/a Alcalde/sa, de forma que se atienda una necesidad no cubierta hasta la fecha por la normativa electoral española."
+        summary_3: "El proceso revocatorio es una medida de carácter excepcional mediante la cual la ciudadanía puede retirar de su puesto a un responsable público que fue elegido en votación legítima, pero con el que pasado un tiempo se encuentra manifiestamente en desacuerdo. Es por ello que las reglas que se establecen para poder llevarlo a cabo son necesariamente mucho más exigentes que las que se fijan para la votación de cualquier otra propuesta."
+        summary_4: "Cualquier persona que esté registrada y verificada como empadronada mayor de 16 años, puede crear una propuesta en el portal solicitando la dimisión del/a Alcalde/sa. Dicha petición se sometería a los mismos plazos y número de apoyos necesario que aplican para el resto de propuestas, y el proceso de votación de la misma se realizaría asimismo siguiendo el mismo procedimiento aplicado para el resto de ellas."
+        summary_5: "El revocatorio del/a Alcalde/sa se considerará vinculante únicamente en caso de que la propuesta cuente con el voto favorable equivalente a la mitad más uno de los votos emitidos en las últimas elecciones municipales. En ese caso el/la Alcalde/sa se compromete a renunciar a su cargo, manteniendo su puesto como Concejal, y se procedería a realizar una nueva sesión de investidura por parte del Pleno Municipal."
+        summary_6: "El revocatorio no supone necesariamente el cambio del grupo político del que saldrá el nuevo Alcalde, decisión que compete al Pleno. El revocatorio va dirigido tan solo hacia la persona que ejerce el cargo y no es una forma de censura hacia la formación política en la que este milita."
       titles:
         debates_info: "¿Cómo funcionan los debates?"
-        how_it_works: "¿Cómo funciona el portal Decide Chiloeches?"
+        how_it_works: "¿Cómo funciona el portal \"Decide Chiloeches\"?"
+        participation: "¿Cómo puedo participar en el portal?"
+        revocation_info: "Propuestas revocatorias del/a Alcalde/sa"
+        voting_info: "¿Cómo funcionan las votaciones?"
