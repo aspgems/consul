@@ -18,6 +18,8 @@ es:
         summary:
           spending_proposals: Propuestas de gasto
         spending_proposals_title: Propuestas de gasto
+    tags:
+      proposals_category: Usar como Categoría en Propuestas
     valuators:
       summary:
         title: Resumen de evaluación de propuestas de gasto

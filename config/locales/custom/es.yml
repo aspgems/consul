@@ -3,6 +3,10 @@ es:
   account:
     show:
       account_pending_verification: Cuenta pendiente de verificar
+  debates:
+    form:
+      tag_featured_label: Temas propuestos
+      tags_instructions: Etiqueta este debate. Puedes elegir entre los temas propuestos o introducir los que desees
   geozones:
     none: Todo el municipio
   layouts:
