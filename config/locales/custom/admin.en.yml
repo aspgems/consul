@@ -17,6 +17,8 @@ en:
         summary:
           spending_proposals: Spending proposals
         spending_proposals_title: Spending proposals
+    tags:
+      proposals_category: Use as a Category in Proposals
     valuators:
       summary:
         title: Valuator summary for spending proposals

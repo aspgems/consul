@@ -3,6 +3,10 @@ en:
   account:
     show:
       account_pending_verification: Account pending verification
+  debates:
+    form:
+      tag_featured_label: Proposed topics
+      tags_instructions: Tag this debate. You can choose from proposed topics or add your own
   geozones:
     none: All municipality
   layouts:

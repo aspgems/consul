@@ -1,5 +1,12 @@
 ---
 pt-BR:
+  admin:
+    tags:
+      proposals_category: Use como Categoria no Propostas
+  debates:
+    form:
+      tag_featured_label: Tópicos propostos
+      tags_instructions: Marcar este debate. Você pode escolher entre os tópicos propostos ou adicionar seu próprio
   layouts:
     header:
       open_gov: Decide Chiloeches

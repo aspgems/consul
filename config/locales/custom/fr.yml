@@ -1,5 +1,12 @@
 ---
 fr:
+  admin:
+    tags:
+      proposals_category: Utilisation en tant que catégorie dans les propositions
+  debates:
+    form:
+      tag_featured_label: Sujets proposées
+      tags_instructions: "Étiquetter ce débat. Vous pouvez choisir parmi les sujets proposées ou ajouter les vôtres"
   layouts:
     header:
       open_gov: Décide Chiloeches
