@@ -5,6 +5,7 @@ es:
       description:
         debates_info: "Inicia tus propios debates y participa en los de otros usuarios"
         detailed_process: "Explicación detallada del proceso"
+        participation: "Procedimiento de registro y verificación de usuarios"
         revocation_info: "Proceso de solicitud de revocatorio"
         voting_info: "Votación de propuestas con los apoyos necesarios"
       debates_info:
@@ -36,7 +37,11 @@ es:
         summary_step_5: "<strong>¡Se hace!</strong> Si la propuesta es aprobada, el gobierno del Ayuntamiento la asume como propia y la llevará a cabo."
         votings_section: "Sección de \"Votaciones\""
         votings_section_p1: "Las propuestas que han alcanzado suficientes apoyos se someten periódicamente a votación por parte de l@s vecin@s. Como parte de su compromiso con los principios de la democracia participativa, el actual gobierno municipal se compromete a poner en marcha en el menor plazo posible todas aquellas propuestas que sean aprobadas en votación con un suficiente nivel de apoyo."
-
+      participation:
+         summary_1: "Para poder participar en los debates y realizar propuestas basta con registrarte en la página web <a href='https://www.decide.aytochiloeches.es'>www.decide.aytochiloeches.es</a>. No es necesario ser residente en el municipio para poder registrarte en el portal. El portal está también abierto a organizaciones y asociaciones que pueden presentar sus propias propuestas."
+         summary_2: "Para poder apoyar propuestas y participar en las votaciones no basta con estar registrado, sino que es necesario que estés empadronado en la localidad y que tengas más de 16 años. L@s usuari@s registrad@s tienen que solicitar su validación previa para poder apoyar propuestas y tener acceso a la sección de “Votaciones”."
+         summary_3: "Al solicitar la validación, se te va a pedir que introduzcas algunos datos adicionales que se utilizarán para comprobar tu información de empadronamiento. Una vez verificados tus datos, se te enviará un código personal por correo electrónico para completar el proceso."
+         summary_4: "La participación en el portal está sujeta a la aceptación de sus normas y al mantenimiento del necesario respeto hacia los demás. L@s usuari@s que reiteradamente incumplan estas normas, podrán ser bloquead@s por la administración del portal."
       proposals_info:
         detail_1: "Para efectuar una propuesta, basta con que pulses el botón “Crear una propuesta” y rellenes los campos requeridos. La propuesta puede ser tan sencilla como una simple frase, pero te recomendamos detallarla todo lo posible, añadiendo incluso material adicional de forma que sea más completa e interesante."
         detail_2: "Una vez creadas las propuestas, aparecen en el portal para que pueda empezar a recoger apoyos por parte del resto de la ciudadanía. La persona proponente tiene a su disposición las funcionalidades del portal para enviar una notificación solicitando su apoyo a todos l@s usuari@s que hayan activado esta opción en su perfil. Para dar tu apoyo a una de las propuestas, tan solo es necesario que pulses en el botón “Apoyar” que aparece a la derecha de esta."

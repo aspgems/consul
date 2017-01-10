@@ -5,6 +5,7 @@ en:
       description:
         debates_info: "Start your own debates and participate in those of other users"
         detailed_process: "Detailed explanation of the process"
+        participation: "User registration and verification procedure"
         revocation_info: "Revocation request process"
         voting_info: "Voting of proposals with the necessary supports"
       how_it_works:

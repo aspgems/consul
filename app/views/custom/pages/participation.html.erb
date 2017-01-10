@@ -1,16 +1,13 @@
 <div class="row margin-top">
   <div class="small-12 medium-3 column">
     <%= render "shared/back_link" %>
-
-    <ul class="menu vertical margin-top">
-      <li><a href="#i"><strong><%= t('pages.more_information.description.detailed_process') %></strong></a></li>
-    </ul>
   </div>
 
   <div class="small-12 medium-9 column">
     <h1><%= t('pages.more_information.titles.participation') %></h1>
-    <p>Resumen del funcionamiento del proceso de participación</p>
-    <h2 id="i"><%= t('pages.more_information.description.detailed_process') %></h2>
-    <p>Descripción detallada del funcionamiento del proceso de participación</p>
+    <p><%= markdown t('pages.more_information.participation.summary_1') %></p>
+    <p><%= t('pages.more_information.participation.summary_2') %></p>
+    <p><%= t('pages.more_information.participation.summary_3') %></p>
+    <p><%= t('pages.more_information.participation.summary_4') %></p>
   </div>
 </div>
