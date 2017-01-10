@@ -1,27 +1,23 @@
-
-
 //participation overrides
-
-
 // 03. Show participation
 // ----------------------
 
 .debate-show,
-.proposal-show,
-.investment-project-show {
+.investment-project-show,
+.proposal-show {
   aside {
     h2 {
       border-top: 2px solid $brand;
     }
   }
 
-  .document-link, .video-link {
+  .document-link,
+  .video-link {
     :before {
       color: $brand;
     }
   }
 }
-
 // 06. Proposals successfull
 // -------------------------
 
@@ -32,9 +28,9 @@
     background: darken($brand, 15%);
   }
 }
+
 .featured-proposals-ballot-banner {
   background: darken($brand, 15%) image-url("ballot_tiny.gif") no-repeat;
-
   @include breakpoint(large) {
     background: darken($brand, 15%) image-url("ballot.gif") no-repeat;
   }
@@ -51,4 +47,19 @@
 .auth-page {
   background: $brand image-url("auth_bg.jpg") no-repeat top center relative;
   background-size: cover;
+  @media only screen and (max-width: 40em) {
+    background-image: none;
+
+    h1:not(.logo) {
+      margin-bottom: rem-calc(20);
+
+      a {
+        line-height: rem-calc(45); // Same as logo image height
+
+        img {
+          margin-right: rem-calc(10);
+        }
+      }
+    }
+  }
 }
