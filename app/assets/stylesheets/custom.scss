@@ -55,3 +55,18 @@
     }
   }
 }
+
+.verify-account {
+  .pending-verification {
+    background: $info-bg;
+    color: $color-info;
+    line-height: $line-height*2;
+  }
+}
+
+// volver link
+
+.back {
+  width: 100%
+  margin-bottom: 10px;
+}
