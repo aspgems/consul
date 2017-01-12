@@ -36,14 +36,6 @@
   }
 }
 
-.verify-account {
-  .pending-verification {
-    background: $info-bg;
-    color: $color-info;
-    line-height: $line-height*2;
-  }
-}
-
 .auth-page {
   background: $brand image-url("auth_bg.jpg") no-repeat top center relative;
   background-size: cover;
@@ -75,6 +67,8 @@
 // volver link
 
 .back {
-  width: 100%
-  margin-bottom: 10px;
+  @media only screen and (max-width: 40em) {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
