@@ -67,8 +67,9 @@
 
 .back {
   @media only screen and (max-width: 40em) {
-  width: 100%;
-  margin-bottom: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 
 .button.float-right ~ .button.float-right {
@@ -77,4 +78,35 @@
 
 .button.float-right {
   margin-left: $line-height/2;
+}
+
+// Votes thumbs fixes
+
+.debate, .debate-show {
+
+  .votes {
+    @include votes;
+    padding-left: 10px!important;
+    @media only screen and (max-width: 40em) {
+        padding-left: 0!important;
+    }
+    .against {
+      margin-left: 0;
+    }
+    .like {
+      padding: 0 5px;
+      @media only screen and (max-width: 40em) {
+          padding: 0;
+      }
+    }
+    .unlike {
+      padding: 0 5px;
+    }
+    .divider{
+      display: none;
+    }
+    @include breakpoint(medium) {
+      text-align: center;
+    }
+  }
 }
