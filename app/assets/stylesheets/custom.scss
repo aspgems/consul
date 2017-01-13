@@ -63,12 +63,46 @@
     line-height: $line-height*2;
   }
 }
-
 // volver link
 
 .back {
   @media only screen and (max-width: 40em) {
     width: 100%;
     margin-bottom: 10px;
+  }
+}
+
+.button.float-right ~ .button.float-right {
+  margin: 0;
+}
+
+.button.float-right {
+  margin-left: $line-height/2;
+}
+
+// Votes thumbs fixes
+
+.debate, .debate-show {
+
+  .votes {
+    @include votes;
+    padding-left: 10px!important;
+    @media only screen and (max-width: 40em) {
+        padding-left: 0!important;
+    }
+    .against {
+      margin-left: 0;
+    }
+    .like {
+      @media only screen and (max-width: 40em) {
+          padding: 0;
+      }
+    }
+    .divider{
+      display: none;
+    }
+    @include breakpoint(medium) {
+      text-align: center;
+    }
   }
 }
