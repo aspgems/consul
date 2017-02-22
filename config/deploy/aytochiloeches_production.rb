@@ -12,6 +12,8 @@ set :app_env, 'production'     # Name used in rollbar/hipchat, etc
 set :branch,  'aytochiloeches' # Git branch deployed
 set :instance, 'aytochiloeches_production'   # Deploy extra files from script/deploy/<instance>
 
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/consul.yml')
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
