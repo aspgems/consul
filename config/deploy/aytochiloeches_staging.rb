@@ -7,6 +7,7 @@
 role :app, %w(bishop.aspgems.com)
 role :web, %w(bishop.aspgems.com)
 role :db,  %w(bishop.aspgems.com)
+role :background, %w(bishop.aspgems.com)
 
 set :app_env, 'integration'     # Name used in rollbar/hipchat, etc
 set :branch,  'aytochiloeches' # Git branch deployed

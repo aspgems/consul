@@ -7,6 +7,7 @@
 role :app, %w(motoko.aspgems.com)
 role :web, %w(motoko.aspgems.com)
 role :db,  %w(motoko.aspgems.com)
+role :background, %w(motoko.aspgems.com)
 
 set :app_env, 'production'     # Name used in rollbar/hipchat, etc
 set :branch,  'aytochiloeches' # Git branch deployed
