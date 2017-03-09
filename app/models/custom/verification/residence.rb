@@ -33,7 +33,7 @@ class Verification::Residence
     end
 
     def valid_postal_code?
-      postal_code == "19160"
+      %w(00001 00002 00003 00004 00005 00009).include?(postal_code)
     end
 
     def call_census_api

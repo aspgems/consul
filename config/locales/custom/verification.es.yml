@@ -5,3 +5,17 @@ es:
       create:
         flash:
           success: Residencia pendiente de verificar
+      new:
+        postal_code: Código de Nucleo Urbano
+        postal_code_note: "Para verificar tus datos debes estar empadronado en el municipio de Chiloeches.
+</br>
+Incluye el código del nucleo de población en el que estás empadronado de entre esta lista
+</br>
+<ul class='note'>
+<li>00001 Centro Urbano Chiloeches</li>
+<li>00002 Urb. El Clavin</li>
+<li>00003 Urb. La Celada</li>
+<li>00004 Urb. El Mapa</li>
+<li>00005 Urb. Medina Azahara</li>
+<li>00009 Otra Ubicación en Chiloeches</li>
+</ul>"
