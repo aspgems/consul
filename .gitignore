@@ -20,6 +20,7 @@
 /config/database.yml
 /config/secrets.yml
 /config/deploy-secrets.yml
+/config/consul.yml
 
 /coverage
 
@@ -31,3 +32,6 @@
 .ruby-gemset
 
 public/sitemap.xml
+
+# Ignore files of Rubymine
+.idea/*
