@@ -17,4 +17,15 @@ class User
   def pending_verification?
     unverified? && document_number.present?
   end
+
+  def self.to_csv
+    attributes = %w{username email document_number document_type phone_number gender date_of_birth verified_at created_at}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+      all.each do |user|
+        csv << user.attributes.values_at(*attributes)
+      end
+    end
+  end
 end

@@ -189,6 +189,8 @@ Rails.application.routes.draw do
       get :direct_messages, on: :collection
     end
 
+    resources :participants, controller: :participants, only: :index
+
     namespace :api do
       resource :stats, only: :show
     end
