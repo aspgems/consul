@@ -1,8 +1,10 @@
 require_dependency Rails.root.join('app', 'models', 'user').to_s
+require 'csv'
 
 class User
   validates :phone_number, phone: { allow_blank: true, types: [:mobile, :fixed_line] }
 
+  scope :sort_by_newest, -> { order(created_at: :desc) }
   scope :unverified, -> { where(verified_at: nil).where.not(document_number: nil) }
   scope :search_by_email_username_document, ->(term) { where("email = ? OR username ILIKE ? OR document_number ILIKE ?", term, "%#{term}%", "%#{term}%") }
 
