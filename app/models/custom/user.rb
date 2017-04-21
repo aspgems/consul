@@ -23,7 +23,7 @@ class User
   def self.to_csv
     attributes = %w{username email document_number document_type phone_number gender date_of_birth verified_at created_at}
 
-    CSV.generate(headers: true) do |csv|
+    CSV.generate do |csv|
       csv << attributes
       all.each do |user|
         csv << user.attributes.values_at(*attributes)
