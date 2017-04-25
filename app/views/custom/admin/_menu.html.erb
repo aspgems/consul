@@ -1,0 +1,39 @@
+<nav class="admin-sidebar">
+  <ul id="admin_menu">
+
+    <%= nav_element('tags', admin_tags_path, 'debate_topics', class_icon: 'icon-tag') %>
+
+    <%= nav_element('proposals', admin_proposals_path, 'hidden_proposals', class_icon: 'icon-proposals') %>
+
+    <%= nav_element('debates', admin_debates_path, 'hidden_debates', class_icon: 'icon-debates') if feature?(:debates) %>
+
+    <%= nav_element('comments', admin_comments_path, 'hidden_comments', class_icon: 'icon-comments') %>
+
+    <%= nav_element('spending_proposals', admin_spending_proposals_path, 'spending_proposals', class_icon: 'icon-budget') if feature?(:spending_proposals) %>
+
+    <%= nav_element('banners', admin_banners_path, 'banner', class_icon: 'icon-eye') %>
+
+    <%= nav_element('users', admin_users_path, 'hidden_users', class_icon: 'icon-eye') %>
+
+    <%= nav_element('verifications', admin_verifications_path, 'incomplete_verifications', class_icon: 'icon-eye') %>
+
+    <%= nav_element('organizations', admin_organizations_path, 'organizations', class_icon: 'icon-organizations') %>
+
+    <%= nav_element('officials', admin_officials_path, 'officials', class_icon: 'icon-user') %>
+
+    <%= nav_element('moderators', admin_moderators_path, 'moderators', class_icon: 'icon-user') %>
+
+    <%= nav_element('valuators', admin_valuators_path, 'valuators', class_icon: 'icon-user') %>
+
+    <%= nav_element('managers', admin_managers_path, 'managers', class_icon: 'icon-user') %>
+
+    <%= nav_element('participants', admin_participants_path(format: :csv), 'participants', class_icon: 'icon-user') %>
+
+    <%= nav_element('activity', admin_activity_path, 'activity', class_icon: 'icon-eye') %>
+
+    <%= nav_element('settings', admin_settings_path, 'settings', class_icon: 'icon-settings') %>
+
+    <%= nav_element('stats', admin_stats_path, 'stats', class_icon: 'icon-stats') %>
+
+  </ul>
+</nav>

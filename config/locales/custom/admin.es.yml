@@ -5,7 +5,11 @@ es:
       verify: Verificar usuario
     menu:
       incomplete_verifications: Verificaciones pendientes
+      participants: Participantes (csv)
       spending_proposals: Propuestas de gasto
+    participants:
+      index:
+        filename: participantes
     spending_proposals:
       index:
         title: Propuestas de gasto para presupuestos participativos
