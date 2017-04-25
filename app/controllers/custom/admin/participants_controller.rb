@@ -4,7 +4,7 @@ class Admin::ParticipantsController < Admin::BaseController
     users = User.sort_by_newest
 
     respond_to do |format|
-      format.csv { send_data(users.to_csv, filename: "#{t('.filename')}-#{Date.today}.csv") }
+      format.csv { send_data(users.to_csv, filename: "#{t('.filename')}-#{Time.zone.today}.csv") }
     end
   end
 
