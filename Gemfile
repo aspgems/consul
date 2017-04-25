@@ -86,7 +86,7 @@ group :development, :test do
   gem 'capistrano3-delayed-job', '~> 1.0'
   gem "bullet"
   gem "faker"
-  gem 'rubocop', '~> 0.45.0', require: false
+  gem 'rubocop', '~> 0.48.1', require: false
   gem 'knapsack'
 end
 

@@ -10,11 +10,11 @@ class Valuation::SpendingProposalsController < Valuation::BaseController
 
   def index
     @geozone_filters = geozone_filters
-    if current_user.valuator?
-      @spending_proposals = SpendingProposal.scoped_filter(params_for_current_valuator, @current_filter).order(cached_votes_up: :desc).page(params[:page])
-    else
-      @spending_proposals = SpendingProposal.none.page(params[:page])
-    end
+    @spending_proposals = if current_user.valuator?
+                            SpendingProposal.scoped_filter(params_for_current_valuator, @current_filter).order(cached_votes_up: :desc).page(params[:page])
+                          else
+                            SpendingProposal.none.page(params[:page])
+                          end
   end
 
   def valuate
