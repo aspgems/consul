@@ -17,4 +17,8 @@ class User
   def pending_verification?
     unverified? && document_number.present?
   end
+
+  def self.destroy_verification(user)
+    user.update(document_number: nil, residence_verified_at: nil)
+  end
 end
