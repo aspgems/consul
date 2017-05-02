@@ -18,4 +18,12 @@ class Admin::VerificationsController < Admin::BaseController
                 notice: t("admin.settings.flash.updated")
   end
 
+  def destroy
+    @user = User.unverified.find(params[:user_id])
+    (@user.update(document_number: nil)
+     @user.update(residence_verified_at: nil)) if @user
+    redirect_to search_admin_verifications_path(request.query_parameters.dup.extract!(:term, :page)),
+                notice: t("admin.settings.flash.updated")
+  end
+
 end

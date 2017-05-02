@@ -18,6 +18,11 @@
           method: :post,
           data: { confirm: t("admin.actions.confirm") },
           class: "button success" %>
+        <%= link_to t("admin.actions.cancel_verification"),
+          admin_verifications_path({ user_id: user.id }.merge request.query_parameters),
+          method: :delete,
+          data: { confirm: t("admin.actions.confirm") },
+          class: "button hollow alert" %>
       </td>
       <td>
       </td>

@@ -3,6 +3,7 @@ es:
   admin:
     actions:
       verify: Verificar usuario
+      cancel_verification: Cancelar verificación
     menu:
       incomplete_verifications: Verificaciones pendientes
       spending_proposals: Propuestas de gasto
