@@ -15,14 +15,14 @@ class Admin::VerificationsController < Admin::BaseController
     @user = User.unverified.find(params[:user_id])
     @user.update(verified_at: Time.now) if @user
     redirect_to search_admin_verifications_path(request.query_parameters.dup.extract!(:term, :page)),
-                notice: t("admin.settings.flash.updated")
+                notice: t('admin.settings.flash.updated')
   end
 
   def destroy
     @user = User.unverified.find(params[:user_id])
-    User.destroy_verification(@user) if @user
-    redirect_to search_admin_verifications_path(request.query_parameters.dup.extract!(:term, :page)),
-                notice: t("admin.settings.flash.updated")
+    @user.destroy_verification(@user)
+    redirect_to search_admin_verifications_path(request.query_parameters.slice(:term, :page)),
+                notice: t('admin.settings.flash.updated')
   end
 
 end
