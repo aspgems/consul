@@ -19,7 +19,7 @@
           data: { confirm: t("admin.actions.confirm") },
           class: "button success" %>
         <%= link_to t("admin.actions.cancel_verification"),
-          admin_verifications_path({ user_id: user.id }.merge request.query_parameters),
+          admin_verifications_path({ user_id: user.id }.merge request.query_parameters.slice(:term, :page)),
           method: :delete,
           data: { confirm: t("admin.actions.confirm") },
           class: "button hollow alert" %>
