@@ -19,6 +19,6 @@ class User
   end
 
   def destroy_verification
-    self.update(document_number: nil, residence_verified_at: nil)
+    update_attributes(document_number: nil, residence_verified_at: nil)
   end
 end
