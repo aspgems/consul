@@ -20,7 +20,7 @@ class Admin::VerificationsController < Admin::BaseController
 
   def destroy
     @user = User.unverified.find(params[:user_id])
-    @user.destroy_verification(@user)
+    @user.destroy_verification
     redirect_to search_admin_verifications_path(request.query_parameters.slice(:term, :page)),
                 notice: t('admin.settings.flash.updated')
   end
