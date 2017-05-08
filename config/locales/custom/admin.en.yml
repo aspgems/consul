@@ -2,8 +2,8 @@
 en:
   admin:
     actions:
-      verify: Verify user
       cancel_verification: Cancel verification
+      verify: Verify user
     spending_proposals:
       index:
         summary_link: "Spending proposals summary"
