@@ -34,5 +34,4 @@ class User
   def destroy_verification
     update_attributes(document_number: nil, residence_verified_at: nil)
   end
-
 end
