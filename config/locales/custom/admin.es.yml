@@ -2,6 +2,7 @@
 es:
   admin:
     actions:
+      cancel_verification: Cancelar verificación
       verify: Verificar usuario
     menu:
       incomplete_verifications: Verificaciones pendientes
