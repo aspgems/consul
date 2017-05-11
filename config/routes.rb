@@ -179,7 +179,7 @@ Rails.application.routes.draw do
       get :search, on: :collection
     end
 
-    resources :verifications, controller: :verifications, param: :id, only: [:index, :create, :destroy] do
+    resources :verifications, controller: :verifications, only: [:index, :create, :destroy] do
       get :search, on: :collection
     end
 
