@@ -1,8 +1,7 @@
 require_dependency Rails.root.join('app', 'controllers', 'admin', 'verifications_controller').to_s
-
+# The controller name is correct?? Should be user_unverified_controller?.
 class Admin::VerificationsController < Admin::BaseController
 
-  # The controller name is correct?? Should be user_unverified_controller?.
   def index
     @users = User.unverified.page(params[:page]).for_render
   end
