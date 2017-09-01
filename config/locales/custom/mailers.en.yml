@@ -1,6 +1,12 @@
 ---
 en:
   mailers:
+    account_verification:
+      subject: "COMPLETED USER VERIFICATION"
+      title: "COMPLETED USER VERIFICATION"
+      greeting: "Dear %{name}"
+      body: "Verification of your user as registered has been completed. With this verification you can already participate fully in the portal, supporting proposals and participating in the online voting processes of those proposals that reach enough support."
+      town_hall: "Chiloeches Town Hall"
     unfeasible_spending_proposal:
       new_href: "new spending proposal"
       reconsider_html: "If you believe that the rejected proposal meets the requirements to be an spending proposal, you can communicate this, within 48 hours, responding to the email address examples@consul.es. Including the code %{code} in the subject of the email."
