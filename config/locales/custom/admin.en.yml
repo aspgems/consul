@@ -2,6 +2,7 @@
 en:
   admin:
     actions:
+      cancel_verification: Cancel verification
       verify: Verify user
     spending_proposals:
       index:
