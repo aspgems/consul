@@ -14,7 +14,10 @@ class Admin::VerificationsController < Admin::BaseController
   # Create and destroy methods should be here? Is the correct place?.
   def create
     @user = User.unverified.find(params[:user_id])
-    @user.update(verified_at: Time.now) if @user
+    if @user
+      @user.update(verified_at: Time.now)
+      Mailer.account_verification(@user, @user.email).deliver_later
+    end
     redirect_to search_admin_verifications_path(request.query_parameters.slice(:term, :page)),
                 notice: t('admin.settings.flash.updated')
   end

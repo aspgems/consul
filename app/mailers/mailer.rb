@@ -33,6 +33,15 @@ class Mailer < ApplicationMailer
     end
   end
 
+  def account_verification(user, recipient)
+    @user = user
+    @recipient = recipient
+
+    with_user(user) do
+      mail(to: @recipient, subject: t('mailers.account_verification.subject'))
+    end
+  end
+
   def unfeasible_spending_proposal(spending_proposal)
     @spending_proposal = spending_proposal
     @author = spending_proposal.author

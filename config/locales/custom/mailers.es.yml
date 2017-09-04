@@ -1,6 +1,12 @@
 ---
 es:
   mailers:
+    account_verification:
+      subject: "VERIFICACION DE USUARIO COMPLETADA"
+      title: "VERIFICACIÓN DE USUARIO COMPLETADA"
+      greeting: "Estimado/a %{name}"
+      body: "La verificación de tu usuario como empadronado ha sido completada. Con esta verificación ya puedes participar plenamente en el portal, apoyando propuestas y participando en los procesos de votación on-line de aquellas propuestas que alcancen suficientes apoyos."
+      town_hall: "Ayuntamiento de Chiloeches"
     unfeasible_spending_proposal:
       new_href: "nueva propuesta de gasto"
       reconsider_html: "Si consideras que la propuesta rechazada cumple los requisitos para mantenerla como propuesta de gasto, podrás comunicarlo, en el plazo de 48 horas, al correo example@consul.es, indicando necesariamente para su tramitación el código %{code} como asunto del correo, correspondiente a tu propuesta."

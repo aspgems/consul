@@ -1,0 +1,15 @@
+<td style="padding-bottom: 20px; padding-left: 10px;">
+  <h1 style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;">
+    <%= t("mailers.account_verification.title") %>
+  </h1>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+    <%= t("mailers.account_verification.greeting", name: @user.name) %>
+  </p>
+
+  <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
+  <%= t("mailers.account_verification.body") %>
+  </p>
+
+  <%= link_to(t('mailers.account_verification.town_hall'), root_url, style: "color: #2895F1; text-decoration:none;")%>
+</td>
