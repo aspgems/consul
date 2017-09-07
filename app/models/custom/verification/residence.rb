@@ -27,6 +27,13 @@ class Verification::Residence
   end
 
   private
+    def retrieve_census_data
+      # Nothing to do
+    end
+
+    def residency_valid?
+      true
+    end
 
     def set_terms_of_service
       self.terms_of_service = "1"
