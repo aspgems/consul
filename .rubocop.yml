@@ -1,4 +1,3 @@
 inherit_from:
     - .rubocop_custom.yml
     - .rubocop_todo.yml
-

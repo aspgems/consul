@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  if Rails.env.development? || Rails.env.staging?
+    get '/sandbox' => 'sandbox#index'
+    get '/sandbox/*template' => 'sandbox#show'
+  end
+
   devise_for :users, controllers: {
                        registrations: 'users/registrations',
                        sessions: 'users/sessions',
@@ -52,6 +57,7 @@ Rails.application.routes.draw do
       put :flag
       put :unflag
       get :retire_form
+      get :share
       patch :retire
     end
     collection do
@@ -71,18 +77,61 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :budgets, only: [:show, :index] do
+    resources :groups, controller: "budgets/groups", only: [:show]
+    resources :investments, controller: "budgets/investments", only: [:index, :new, :create, :show, :destroy] do
+      member     { post :vote }
+      collection { get :suggest }
+    end
+    resource :ballot, only: :show, controller: "budgets/ballots" do
+      resources :lines, controller: "budgets/ballot/lines", only: [:create, :destroy]
+    end
+    resource :results, only: :show, controller: "budgets/results"
+  end
+
   scope '/participatory_budget' do
     resources :spending_proposals, only: [:index, :new, :create, :show, :destroy], path: 'investment_projects' do
       post :vote, on: :member
     end
   end
 
+  resources :follows, only: [:create, :destroy]
+
   resources :stats, only: [:index]
 
-  resources :legislations, only: [:show]
+  resources :legacy_legislations, only: [:show], path: 'legislations'
 
   resources :annotations do
     get :search, on: :collection
+  end
+
+  resources :polls, only: [:show, :index] do
+    resources :questions, only: [:show], controller: 'polls/questions', shallow: true do
+      post :answer, on: :member
+    end
+  end
+
+  namespace :legislation do
+    resources :processes, only: [:index, :show] do
+      member do
+        get :debate
+        get :draft_publication
+        get :allegations
+        get :result_publication
+      end
+      resources :questions, only: [:show] do
+        resources :answers, only: [:create]
+      end
+      resources :draft_versions, only: [:show] do
+        get :go_to_version, on: :collection
+        get :changes
+        resources :annotations do
+          get :search, on: :collection
+          get :comments
+          post :new_comment
+        end
+      end
+    end
   end
 
   resources :users, only: [:show] do
@@ -119,7 +168,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :users, only: [:index, :show] do
+    resources :hidden_users, only: [:index, :show] do
       member do
         put :restore
         put :confirm_hide
@@ -148,6 +197,24 @@ Rails.application.routes.draw do
 
       get :summary, on: :collection
     end
+
+    resources :budgets do
+      member do
+        put :calculate_winners
+      end
+
+      resources :budget_groups do
+        resources :budget_headings do
+        end
+      end
+
+      resources :budget_investments, only: [:index, :show, :edit, :update] do
+        resources :budget_investment_milestones
+        member { patch :toggle_selection }
+      end
+    end
+
+    resources :signature_sheets, only: [:index, :new, :create, :show]
 
     resources :banners, only: [:index, :new, :create, :edit, :update, :destroy] do
       collection { get :search}
@@ -179,20 +246,71 @@ Rails.application.routes.draw do
       get :search, on: :collection
     end
 
+    resources :administrators, only: [:index, :create, :destroy] do
+      get :search, on: :collection
+    end
+
+    resources :users, only: [:index, :show]
+
+    scope module: :poll do
+      resources :polls do
+        get :search_questions, on: :member
+        patch :add_question, on: :member
+        patch :remove_question, on: :member
+
+        resources :booth_assignments, only: [:index, :show, :create, :destroy] do
+          get :search_booths, on: :collection
+        end
+
+        resources :officer_assignments, only: [:index, :create, :destroy] do
+          get :search_officers, on: :collection
+          get :by_officer, on: :collection
+        end
+
+        resources :recounts, only: :index
+        resources :results, only: :index
+      end
+
+      resources :officers do
+        get :search, on: :collection
+      end
+
+      resources :booths
+      resources :questions
+    end
+
     resources :verifications, controller: :verifications, only: [:index, :create, :destroy] do
       get :search, on: :collection
     end
 
     resource :activity, controller: :activity, only: :show
+    resources :newsletters, only: :index do
+      get :users, on: :collection
+    end
     resource :stats, only: :show do
       get :proposal_notifications, on: :collection
       get :direct_messages, on: :collection
+    end
+
+    namespace :legislation do
+      resources :processes do
+        resources :questions
+        resources :draft_versions
+      end
     end
 
     resources :participants, controller: :participants, only: :index
 
     namespace :api do
       resource :stats, only: :show
+    end
+
+    resources :geozones, only: [:index, :new, :create, :edit, :update, :destroy]
+
+    namespace :site_customization do
+      resources :pages, except: [:show]
+      resources :images, only: [:index, :update, :destroy]
+      resources :content_blocks, except: [:show]
     end
   end
 
@@ -223,10 +341,16 @@ Rails.application.routes.draw do
   end
 
   namespace :valuation do
-    root to: "spending_proposals#index"
+    root to: "budgets#index"
 
     resources :spending_proposals, only: [:index, :show, :edit] do
       patch :valuate, on: :member
+    end
+
+    resources :budgets, only: :index do
+      resources :budget_investments, only: [:index, :show, :edit] do
+        patch :valuate, on: :member
+      end
     end
   end
 
@@ -262,13 +386,46 @@ Rails.application.routes.draw do
       post :vote, on: :member
       get :print, on: :collection
     end
+
+    resources :budgets, only: :index do
+      collection do
+        get :create_investments
+        get :support_investments
+        get :print_investments
+      end
+      resources :investments, only: [:index, :new, :create, :show, :destroy], controller: 'budgets/investments' do
+        post :vote, on: :member
+        get :print, on: :collection
+      end
+    end
   end
+
+  namespace :officing do
+    resources :polls, only: [:index] do
+      get :final, on: :collection
+
+      resources :final_recounts, only: [:new, :create]
+      resources :results, only: [:new, :create, :index]
+    end
+    resource :residence, controller: "residence", only: [:new, :create]
+    resources :voters, only: [:new, :create]
+    root to: "dashboard#index"
+  end
+
+  # GraphQL
+  get '/graphql', to: 'graphql#query'
+  post '/graphql', to: 'graphql#query'
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-  mount Tolk::Engine => '/translate', :as => 'tolk'
+  mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql'
+
+  # more info pages
+  get 'more-information',                     to: 'pages#show', id: 'more_info/index',                as: 'more_info'
+  get 'more-information/how-to-use',          to: 'pages#show', id: 'more_info/how_to_use/index',     as: 'how_to_use'
+  get 'more-information/faq',                 to: 'pages#show', id: 'more_info/faq/index',            as: 'faq'
 
   # static pages
   get '/blog' => redirect("http://blog.consul/")

@@ -12,6 +12,7 @@ describe "Abilities::Administrator" do
   let(:debate) { create(:debate) }
   let(:comment) { create(:comment) }
   let(:proposal) { create(:proposal) }
+  let(:legislation_question) { create(:legislation_question) }
 
   let(:hidden_debate) { create(:debate, :hidden) }
   let(:hidden_comment) { create(:comment, :hidden) }
@@ -50,10 +51,24 @@ describe "Abilities::Administrator" do
   it { should be_able_to(:comment_as_administrator, proposal) }
   it { should_not be_able_to(:comment_as_moderator, proposal) }
 
+  it { should be_able_to(:comment_as_administrator, legislation_question) }
+  it { should_not be_able_to(:comment_as_moderator, legislation_question) }
+
   it { should be_able_to(:manage, Annotation) }
 
   it { should be_able_to(:read, SpendingProposal) }
   it { should be_able_to(:update, SpendingProposal) }
   it { should be_able_to(:valuate, SpendingProposal) }
   it { should be_able_to(:destroy, SpendingProposal) }
+
+  it { should be_able_to(:create, Budget) }
+  it { should be_able_to(:update, Budget) }
+
+  it { should be_able_to(:create, Budget::ValuatorAssignment) }
+
+  it { should be_able_to(:update, Budget::Investment) }
+  it { should be_able_to(:hide,   Budget::Investment) }
+
+  it { should be_able_to(:valuate, create(:budget_investment, budget: create(:budget, phase: 'valuating'))) }
+  it { should be_able_to(:valuate, create(:budget_investment, budget: create(:budget, phase: 'finished'))) }
 end

@@ -1,0 +1,7 @@
+<table id="budget_investments_list" class="clear activity-budget-investments">
+  <% @budget_investments.each do |budget_investment| %>
+    <%= render "budget_investment", budget_investment: budget_investment %>
+  <% end %>
+</table>
+
+<%= paginate @budget_investments %>

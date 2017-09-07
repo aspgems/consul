@@ -1,4 +1,7 @@
 class Organization < ActiveRecord::Base
+
+  include Graphqlable
+
   belongs_to :user, touch: true
 
   validates :name, presence: true
@@ -10,8 +13,14 @@ class Organization < ActiveRecord::Base
   delegate :email, :phone_number, to: :user
 
   scope :pending, -> { where(verified_at: nil, rejected_at: nil) }
-  scope :verified, -> { where.not(verified_at: nil).where("(rejected_at IS NULL or rejected_at < organizations.verified_at)") }
-  scope :rejected, -> { where.not(rejected_at: nil).where("(organizations.verified_at IS NULL or organizations.verified_at < rejected_at)") }
+  scope :verified, lambda {
+    where.not(verified_at: nil)
+         .where("(rejected_at IS NULL or rejected_at < organizations.verified_at)")
+  }
+  scope :rejected, lambda {
+    where.not(rejected_at: nil)
+         .where("(organizations.verified_at IS NULL or organizations.verified_at < rejected_at)")
+  }
 
   def verify
     update(verified_at: Time.current)
@@ -32,15 +41,19 @@ class Organization < ActiveRecord::Base
   end
 
   def self.search(text)
-    text.present? ? joins(:user).where("users.email = ? OR users.phone_number = ? OR organizations.name ILIKE ?", text, text, "%#{text}%") : none
+    if text.present?
+      joins(:user).where("users.email = ? OR users.phone_number = ? OR organizations.name ILIKE ?", text, text, "%#{text}%")
+    else
+      none
+    end
   end
 
   def self.name_max_length
-    @@name_max_length ||= self.columns.find { |c| c.name == 'name' }.limit || 60
+    @@name_max_length ||= columns.find { |c| c.name == 'name' }.limit || 60
   end
 
   def self.responsible_name_max_length
-    @@responsible_name_max_length ||= self.columns.find { |c| c.name == 'responsible_name' }.limit || 60
+    @@responsible_name_max_length ||= columns.find { |c| c.name == 'responsible_name' }.limit || 60
   end
 
   private

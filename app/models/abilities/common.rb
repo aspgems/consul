@@ -3,7 +3,7 @@ module Abilities
     include CanCan::Ability
 
     def initialize(user)
-      self.merge Abilities::Everyone.new(user)
+      merge Abilities::Everyone.new(user)
 
       can [:read, :update], User, id: user.id
 
@@ -17,8 +17,6 @@ module Abilities
         proposal.editable_by?(user)
       end
       can [:retire_form, :retire], Proposal, author_id: user.id
-
-      can :read, SpendingProposal
 
       can :create, Comment
       can :create, Debate
@@ -36,6 +34,8 @@ module Abilities
       can [:flag, :unflag], Proposal
       cannot [:flag, :unflag], Proposal, author_id: user.id
 
+      can [:create, :destroy], Follow
+
       unless user.organization?
         can :vote, Debate
         can :vote, Comment
@@ -46,8 +46,22 @@ module Abilities
         can :vote_featured, Proposal
         can :vote, SpendingProposal
         can :create, SpendingProposal
+
+        can :create, Budget::Investment,               budget: { phase: "accepting" }
+        can :suggest, Budget::Investment,              budget: { phase: "accepting" }
+        can :destroy, Budget::Investment,              budget: { phase: ["accepting", "reviewing"] }, author_id: user.id
+        can :vote, Budget::Investment,                 budget: { phase: "selecting" }
+        can [:show, :create], Budget::Ballot,          budget: { phase: "balloting" }
+        can [:create, :destroy], Budget::Ballot::Line, budget: { phase: "balloting" }
+
         can :create, DirectMessage
         can :show, DirectMessage, sender_id: user.id
+        can :answer, Poll do |poll|
+          poll.answerable_by?(user)
+        end
+        can :answer, Poll::Question do |question|
+          question.answerable_by?(user)
+        end
       end
 
       can [:create, :show], ProposalNotification, proposal: { author_id: user.id }

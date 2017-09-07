@@ -23,7 +23,7 @@ class DebatesController < ApplicationController
 
   def index_customization
     @featured_debates = @debates.featured
-    @proposal_successfull_exists = Proposal.successfull.exists?
+    @proposal_successful_exists = Proposal.successful.exists?
   end
 
   def show
@@ -57,7 +57,7 @@ class DebatesController < ApplicationController
   end
 
   def load_featured_tags
-    @featured_tags = ActsAsTaggableOn::Tag.where(featured: true).order(:name)
+    @featured_tags = ActsAsTaggableOn::Tag.category.order(:name)
   end
 
 end

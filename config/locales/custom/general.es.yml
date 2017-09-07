@@ -1,0 +1,8 @@
+---
+es:
+  application:
+    menu: ""
+  layouts:
+    header:
+      logo: Ayto. Chiloeches logo
+...

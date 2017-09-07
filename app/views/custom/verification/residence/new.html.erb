@@ -2,10 +2,7 @@
   <%track_event(category: "verification", action: "start_census" )%>
   <div class="small-12 column">
 
-    <%= link_to account_path, class: "back" do %>
-      <span class="icon-angle-left"></span>
-      <%= t("verification.back") %>
-    <% end %>
+    <%= back_link_to account_path, t("verification.back") %>
 
     <h1><%= t("verification.residence.new.title") %></h1>
 
@@ -37,7 +34,7 @@
 
           <div class="inline-block" data-toggle="info-document-number">
             <span class="icon-help"></span>
-            <span class="sr-only"><%= t("verification.residence.new.document_number_help_title") %></span>
+            <span class="show-for-sr"><%= t("verification.residence.new.document_number_help_title") %></span>
           </div>
 
           <div class="dropdown-pane" id="info-document-number" data-dropdown
@@ -60,10 +57,23 @@
 
       <div class="small-12 medium-5 clear">
         <%= f.label t("verification.residence.new.postal_code") %>
-        <p class="note"><%= raw t("verification.residence.new.postal_code_note") %></p>
+        <p class="help-text" id="postal-code-help-text"><%= raw t("verification.residence.new.postal_code_note") %></p>
         <div class="medium-6">
-          <%= f.text_field :postal_code, label: false %>
+          <%= f.text_field :postal_code, label: false, aria: {describedby: "postal-code-help-text"} %>
         </div>
+      </div>
+
+      <div class="small-12">
+        <%= f.label :terms_of_service do %>
+          <%= f.check_box :terms_of_service, title: t('verification.residence.new.accept_terms_text_title'), label: false %>
+          <span class="checkbox">
+            <%= t("verification.residence.new.accept_terms_text",
+                terms_url: link_to(t("verification.residence.new.terms"), "/census_terms",
+                title: t('shared.target_blank_html'),
+                target: "_blank")).html_safe
+            %>
+          </span>
+        <% end %>
       </div>
 
       <div class="small-12 medium-3 clear">

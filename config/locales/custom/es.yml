@@ -12,6 +12,7 @@ es:
   layouts:
     footer:
       copyright: Ayuntamiento de Chiloeches, %{year}
+      more_info: Más información
     header:
       open_gov: Decide Chiloeches
   spending_proposals:

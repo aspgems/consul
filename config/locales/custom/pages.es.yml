@@ -1,6 +1,9 @@
 ---
 es:
   pages:
+    more_info:
+      other:
+        how_to_use: "Utiliza CONSUL en tu municipio"
     more_information:
       description:
         debates_info: "Inicia tus propios debates y participa en los de otros usuarios"
@@ -8,6 +11,14 @@ es:
         participation: "Procedimiento de registro y verificación de usuarios"
         revocation_info: "Proceso de solicitud de revocatorio"
         voting_info: "Votación de propuestas con los apoyos necesarios"
+        faq: Preguntas frecuentes sobre problemas técnicos
+        how_it_works: Descubre todo lo que puedes hacer en esta web
+        how_to_use: Utilízalo libremente o ayúdanos a mejorarlo, es software libre
+        participation_facts: Para perderle el miedo
+        participation_world: Sistemas de participación ciudadana que ya existen en el mundo
+        proposals_info: Crea tus propias propuestas
+        signature_sheet: Hojas de firmas para recoger apoyos
+        spending_proposals_info: Envía tus propuestas de gasto
       debates_info:
         detail_1: "Tod@s l@s usuari@s pueden abrir temas de debate, o sumar sus aportaciones a los debates que ya se encuentren activos por medio de la realización de comentarios. Para crear un nuevo hilo de discusión basta con pulsar en el botón “Crear un debate” y rellenar los campos requeridos."
         detail_2: "Tanto los hilos, como los comentarios podrán ser valorados por cualquier otra persona, de tal manera que será la propia ciudadanía, y nadie en su nombre, la que decida cuáles son los temas más importantes en cada momento. Estos serán presentados en la portada del espacio, pudiendo por supuesto accederse a todos los demás temas en páginas posteriores, o usando otros criterios de ordenación (los temas con más comentarios, los más nuevos, los más controvertidos, etc.)."
@@ -38,7 +49,7 @@ es:
         votings_section: "Sección de \"Votaciones\""
         votings_section_p1: "Las propuestas que han alcanzado suficientes apoyos se someten periódicamente a votación por parte de l@s vecin@s. Como parte de su compromiso con los principios de la democracia participativa, el actual gobierno municipal se compromete a poner en marcha en el menor plazo posible todas aquellas propuestas que sean aprobadas en votación con un suficiente nivel de apoyo."
       participation:
-         summary_1: "Para poder participar en los debates y realizar propuestas basta con registrarte en la página web <a href='https://www.decide.aytochiloeches.es'>www.decide.aytochiloeches.es</a>. No es necesario ser residente en el municipio para poder registrarte en el portal. El portal está también abierto a organizaciones y asociaciones que pueden presentar sus propias propuestas."
+         summary_1: "Para poder participar en los debates y realizar propuestas basta con registrarte en la página web <a href='https://decide.aytochiloeches.es'>decide.aytochiloeches.es</a>. No es necesario ser residente en el municipio para poder registrarte en el portal. El portal está también abierto a organizaciones y asociaciones que pueden presentar sus propias propuestas."
          summary_2: "Para poder apoyar propuestas y participar en las votaciones no basta con estar registrado, sino que es necesario que estés empadronado en la localidad y que tengas más de 16 años. L@s usuari@s registrad@s tienen que solicitar su validación previa para poder apoyar propuestas y tener acceso a la sección de “Votaciones”."
          summary_3: "Al solicitar la validación, se te va a pedir que introduzcas algunos datos adicionales que se utilizarán para comprobar tu información de empadronamiento. Una vez verificados tus datos, se te enviará un código personal por correo electrónico para completar el proceso."
          summary_4: "La participación en el portal está sujeta a la aceptación de sus normas y al mantenimiento del necesario respeto hacia los demás. L@s usuari@s que reiteradamente incumplan estas normas, podrán ser bloquead@s por la administración del portal."
@@ -67,6 +78,9 @@ es:
         debates_info: "¿Cómo funcionan los debates?"
         how_it_works: "¿Cómo funciona el portal \"Decide Chiloeches\"?"
         participation: "¿Cómo puedo participar en el portal?"
+        participation_facts: Hechos sobre participación ciudadana y democracia directa
+        participation_world: Participación ciudadana directa en el mundo
+        proposals_info: "¿Cómo funcionan las propuestas ciudadanas?"
         revocation_info: "Propuestas revocatorias del/a Alcalde/sa"
         voting_info: "¿Cómo funcionan las votaciones?"
       voting_info:
@@ -80,4 +94,6 @@ es:
         summary_2: "Las votaciones serán telemáticas en el propio portal, y para participar en las mismas es necesario que hayas verificado previamente tu cuenta como empadronad@ mayor de 16 años."
         summary_3: "Con el objeto de facilitar la participación en las votaciones de aquellas personas con problemas de acceso al portal, o que no dispongan de medios telemáticos propios, el Ayuntamiento habilitará temporalmente un espacio público dotado con los sistemas y la asistencia necesaria para que todos podamos ejercer nuestro derecho al voto de las distintas propuestas."
         summary_4: "El resultado de las votaciones será considerado como vinculante por parte del gobierno del Ayuntamiento siempre que en esta se haya producido un número de participantes mínimo."
+    titles:
+      more_information: "Más información"
 

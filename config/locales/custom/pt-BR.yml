@@ -8,5 +8,8 @@ pt-BR:
       tag_featured_label: Tópicos propostos
       tags_instructions: Marcar este debate. Você pode escolher entre os tópicos propostos ou adicionar seu próprio
   layouts:
+    footer:
+      copyright: Câmara Municipal de Chiloeches, %{year}
+      more_info: Mais informação
     header:
       open_gov: Decide Chiloeches

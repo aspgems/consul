@@ -88,16 +88,16 @@ rm -rf /usr/local/var/postgres
 brew install postgis
 ```
 
-## Ghostscript
-
-```
-brew install ghostscript
-```
-
 ## PhantomJS
 
 ```
 brew install phantomjs
+```
+
+## Imagemagick
+
+```
+brew install imagemagick
 ```
 
 ## Clonar el repositorio

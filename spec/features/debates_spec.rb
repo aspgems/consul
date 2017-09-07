@@ -6,6 +6,7 @@ feature 'Debates' do
   scenario 'Disabled with a feature flag' do
     Setting['feature.debates'] = nil
     expect{ visit debates_path }.to raise_exception(FeatureFlags::FeatureDisabled)
+    Setting['feature.debates'] = true
   end
 
   scenario 'Index' do
@@ -54,7 +55,7 @@ feature 'Debates' do
     expect(page.html).to include "<title>#{debate.title}</title>"
 
     within('.social-share-button') do
-      expect(page.all('a').count).to be(3) # Twitter, Facebook, Google+
+      expect(page.all('a').count).to be(4) # Twitter, Facebook, Google+, Telegram
     end
   end
 
@@ -188,11 +189,12 @@ feature 'Debates' do
 
   scenario 'JS injection is prevented but autolinking is respected' do
     author = create(:user)
+    js_injection_string = "<script>alert('hey')</script> <a href=\"javascript:alert('surprise!')\">click me<a/> http://example.org"
     login_as(author)
 
     visit new_debate_path
     fill_in 'debate_title', with: 'Testing auto link'
-    fill_in 'debate_description', with: "<script>alert('hey')</script> <a href=\"javascript:alert('surprise!')\">click me<a/> http://example.org"
+    fill_in 'debate_description', with: js_injection_string
     check 'debate_terms_of_service'
 
     click_button 'Start a debate'
@@ -208,70 +210,6 @@ feature 'Debates' do
     expect(current_path).to eq edit_debate_path(Debate.last)
     expect(page).not_to have_link('click me')
     expect(page.html).to_not include "<script>alert('hey')</script>"
-  end
-
-  context 'Tagging debates' do
-    let(:author) { create(:user) }
-
-    background do
-      login_as(author)
-    end
-
-    pending 'Category tags', :js do
-      education = create(:tag, name: 'Education', kind: 'category')
-      health    = create(:tag, name: 'Health',    kind: 'category')
-
-      visit new_debate_path
-
-      fill_in 'debate_title', with: 'Testing auto link'
-      fill_in 'debate_description', with: "<script>alert('hey')</script> <a href=\"javascript:alert('surprise!')\">click me<a/> http://example.org"
-      check 'debate_terms_of_service'
-
-      find('.js-add-tag-link', text: 'Education').click
-      click_button 'Start a debate'
-
-      expect(page).to have_content 'Debate created successfully.'
-
-      within "#tags" do
-        expect(page).to have_content 'Education'
-        expect(page).to_not have_content 'Health'
-      end
-    end
-
-    scenario 'Custom tags' do
-      visit new_debate_path
-
-      fill_in 'debate_title', with: "Great title"
-      fill_in 'debate_description', with: 'Very important issue...'
-      check 'debate_terms_of_service'
-
-      fill_in 'debate_tag_list', with: 'Refugees, Solidarity'
-      click_button 'Start a debate'
-
-      expect(page).to have_content 'Debate created successfully.'
-      within "#tags" do
-        expect(page).to have_content 'Refugees'
-        expect(page).to have_content 'Solidarity'
-      end
-    end
-
-    scenario 'using dangerous strings' do
-      visit new_debate_path
-
-      fill_in 'debate_title', with: 'A test of dangerous strings'
-      fill_in 'debate_description', with: 'A description suitable for this test'
-      check 'debate_terms_of_service'
-
-      fill_in 'debate_tag_list', with: 'user_id=1, &a=3, <script>alert("hey");</script>'
-
-      click_button 'Start a debate'
-
-      expect(page).to have_content 'Debate created successfully.'
-      expect(page).to have_content 'user_id1'
-      expect(page).to have_content 'a3'
-      expect(page).to have_content 'scriptalert("hey");script'
-      expect(page.html).to_not include 'user_id=1, &a=3, <script>alert("hey");</script>'
-    end
   end
 
   scenario 'Update should not be posible if logged user is not the author' do
@@ -326,33 +264,6 @@ feature 'Debates' do
     click_button "Save changes"
 
     expect(page).to have_content error_message
-  end
-
-  describe 'Limiting tags shown' do
-    scenario 'Index page shows up to 5 tags per debate' do
-      tag_list = ["Hacienda", "Economía", "Medio Ambiente", "Corrupción", "Fiestas populares", "Prensa"]
-      create :debate, tag_list: tag_list
-
-      visit debates_path
-
-      within('.debate .tags') do
-        expect(page).to have_content '1+'
-      end
-    end
-
-    scenario 'Index page shows 3 tags with no plus link' do
-      tag_list = ["Medio Ambiente", "Corrupción", "Fiestas populares"]
-      create :debate, tag_list: tag_list
-
-      visit debates_path
-
-      within('.debate .tags') do
-        tag_list.each do |tag|
-          expect(page).to have_content tag
-        end
-        expect(page).not_to have_content '+'
-      end
-    end
   end
 
   scenario "Flagging", :js do
@@ -515,7 +426,7 @@ feature 'Debates' do
           visit debates_path
 
           click_link "Advanced search"
-          select "Public employee", from: "advanced_search_official_level"
+          select Setting['official_level_1_name'], from: "advanced_search_official_level"
           click_button "Filter"
 
           expect(page).to have_content("There are 2 debates")
@@ -538,7 +449,7 @@ feature 'Debates' do
           visit debates_path
 
           click_link "Advanced search"
-          select "Municipal Organization", from: "advanced_search_official_level"
+          select Setting['official_level_2_name'], from: "advanced_search_official_level"
           click_button "Filter"
 
           expect(page).to have_content("There are 2 debates")
@@ -561,7 +472,7 @@ feature 'Debates' do
           visit debates_path
 
           click_link "Advanced search"
-          select "General director", from: "advanced_search_official_level"
+          select Setting['official_level_3_name'], from: "advanced_search_official_level"
           click_button "Filter"
 
           expect(page).to have_content("There are 2 debates")
@@ -584,7 +495,7 @@ feature 'Debates' do
           visit debates_path
 
           click_link "Advanced search"
-          select "City councillor", from: "advanced_search_official_level"
+          select Setting['official_level_4_name'], from: "advanced_search_official_level"
           click_button "Filter"
 
           expect(page).to have_content("There are 2 debates")
@@ -607,7 +518,7 @@ feature 'Debates' do
           visit debates_path
 
           click_link "Advanced search"
-          select "Mayoress", from: "advanced_search_official_level"
+          select Setting['official_level_5_name'], from: "advanced_search_official_level"
           click_button "Filter"
 
           expect(page).to have_content("There are 2 debates")
@@ -717,7 +628,7 @@ feature 'Debates' do
           click_link "Advanced search"
           select "Customized", from: "js-advanced-search-date-min"
           fill_in "advanced_search_date_min", with: 7.days.ago
-          fill_in "advanced_search_date_max", with: 1.days.ago
+          fill_in "advanced_search_date_max", with: 1.day.ago
           click_button "Filter"
 
           within("#debates") do
@@ -726,6 +637,28 @@ feature 'Debates' do
             expect(page).to have_content(debate1.title)
             expect(page).to have_content(debate2.title)
             expect(page).to_not have_content(debate3.title)
+          end
+        end
+
+        scenario "Search by custom invalid date range", :js do
+          debate1 = create(:debate, created_at: 2.years.ago)
+          debate2 = create(:debate, created_at: 3.days.ago)
+          debate3 = create(:debate, created_at: 9.days.ago)
+
+          visit debates_path
+
+          click_link "Advanced search"
+          select "Customized", from: "js-advanced-search-date-min"
+          fill_in "advanced_search_date_min", with: "9"
+          fill_in "advanced_search_date_max", with: "444444444"
+          click_button "Filter"
+
+          within("#debates") do
+            expect(page).to have_css('.debate', count: 3)
+
+            expect(page).to have_content(debate1.title)
+            expect(page).to have_content(debate2.title)
+            expect(page).to have_content(debate3.title)
           end
         end
 
@@ -741,8 +674,8 @@ feature 'Debates' do
 
           click_link "Advanced search"
           fill_in "Write the text", with: "Schwifty"
-          select "Public employee", from: "advanced_search_official_level"
-          select "Last 24 hours",   from: "js-advanced-search-date-min"
+          select Setting['official_level_1_name'], from: "advanced_search_official_level"
+          select "Last 24 hours", from: "js-advanced-search-date-min"
 
           click_button "Filter"
 
@@ -757,14 +690,14 @@ feature 'Debates' do
           click_link "Advanced search"
 
           fill_in "Write the text", with: "Schwifty"
-          select "Public employee", from: "advanced_search_official_level"
+          select Setting['official_level_1_name'], from: "advanced_search_official_level"
           select "Last 24 hours", from: "js-advanced-search-date-min"
 
           click_button "Filter"
 
           within "#js-advanced-search" do
             expect(page).to have_selector("input[name='search'][value='Schwifty']")
-            expect(page).to have_select('advanced_search[official_level]', selected: 'Public employee')
+            expect(page).to have_select('advanced_search[official_level]', selected: Setting['official_level_1_name'])
             expect(page).to have_select('advanced_search[date_min]', selected: 'Last 24 hours')
           end
         end
@@ -775,7 +708,7 @@ feature 'Debates' do
 
           select "Customized", from: "js-advanced-search-date-min"
           fill_in "advanced_search_date_min", with: 7.days.ago
-          fill_in "advanced_search_date_max", with: 1.days.ago
+          fill_in "advanced_search_date_max", with: 1.day.ago
           click_button "Filter"
 
           within "#js-advanced-search" do
@@ -842,16 +775,6 @@ feature 'Debates' do
 
   end
 
-  scenario 'Index tag does not show featured debates' do
-    featured_debates = create_featured_debates
-    debates = create(:debate, tag_list: "123")
-
-    visit debates_path(tag: "123")
-
-    expect(page).to_not have_selector('#debates .debate-featured')
-    expect(page).to_not have_selector('#featured-debates')
-  end
-
   scenario 'Conflictive' do
     good_debate = create(:debate)
     conflictive_debate = create(:debate, :conflictive)
@@ -876,25 +799,6 @@ feature 'Debates' do
   end
 
   context "Filter" do
-
-    pending "By category" do
-      education = create(:tag, name: 'Education', kind: 'category')
-      health    = create(:tag, name: 'Health',    kind: 'category')
-
-      debate1 = create(:debate, tag_list: education.name)
-      debate2 = create(:debate, tag_list: health.name)
-
-      visit debates_path
-
-      within "#categories" do
-        click_link "Education"
-      end
-
-      within("#debates") do
-        expect(page).to have_css('.debate', count: 1)
-        expect(page).to have_content(debate1.title)
-      end
-    end
 
     context "By geozone" do
 
@@ -963,10 +867,10 @@ feature 'Debates' do
       login_as(author)
 
       debate1 = create(:debate, title: "First debate has 1 vote", cached_votes_up: 1)
-      debate2 = create(:debate, title: "Second debate has 2 votes",  cached_votes_up: 2)
-      debate3 = create(:debate, title: "Third debate has 3 votes",  cached_votes_up: 3)
-      debate4 = create(:debate, title: "This one has 4 votes", description: "This is the fourth debate",  cached_votes_up: 4)
-      debate5 = create(:debate, title: "Fifth debate has 5 votes",  cached_votes_up: 5)
+      debate2 = create(:debate, title: "Second debate has 2 votes", cached_votes_up: 2)
+      debate3 = create(:debate, title: "Third debate has 3 votes", cached_votes_up: 3)
+      debate4 = create(:debate, title: "This one has 4 votes", description: "This is the fourth debate", cached_votes_up: 4)
+      debate5 = create(:debate, title: "Fifth debate has 5 votes", cached_votes_up: 5)
       debate6 = create(:debate, title: "Sixth debate has 6 votes", description: 'This is the sixth debate',  cached_votes_up: 6)
       debate7 = create(:debate, title: "This has seven votes, and is not suggest", description: 'This is the seven', cached_votes_up: 7)
 
@@ -1041,7 +945,6 @@ feature 'Debates' do
       expect(page).to have_content("Featured")
     end
   end
-
 
   scenario 'Index do not show featured debates if none is marked as featured' do
     admin = create(:administrator)

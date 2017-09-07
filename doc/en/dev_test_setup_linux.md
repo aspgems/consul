@@ -16,12 +16,13 @@ The preferred method is via rvm:
 
 (only the multi user option installs all dependencies automatically, as we use 'sudo'.)
 
-###as local user:
+### As local user
 
 ```
 curl -L https://get.rvm.io | bash -s stable
 ```
-###for all system users
+
+### For all system users
 
 ```
 curl -L https://get.rvm.io | sudo bash -s stable
@@ -85,15 +86,9 @@ apt-get update
 apt-get install postgresql-9.4
 ```
 
-## Ghostscript
-
-```
-apt-get install ghostscript
-```
-
 ## Cloning the repository
 
-Now, with all the dependencies installed, clone the Consul repository:
+Now, with all the dependencies installed, clone the CONSUL repository:
 
 ```
 git clone https://github.com/consul/consul.git
@@ -102,6 +97,7 @@ bundle install
 cp config/database.yml.example config/database.yml
 cp config/secrets.yml.example config/secrets.yml
 ```
+
 Perhaps it's needed to create a superuser rol with password in postgresql, and write it in */config/database.yml* 'user:' and 'password:' fields.
 
 Also, it seems that postgresql use as default an unix socket for localhost communications. If we encounter problems creating database (connection problems) we can change in */config/database.yml* the line:
@@ -112,8 +108,8 @@ host: localhost
 
 for:
 
-```  
-host: /var/run/postgresql  
+```
+host: /var/run/postgresql
 ```
 
 After this:

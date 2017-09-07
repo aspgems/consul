@@ -8,7 +8,7 @@
   <% @users.each do |user| %>
     <tr id="<%= dom_id(user) %>">
       <td>
-        <%= link_to user.name, admin_user_path(user) %>
+        <%= link_to user.name, admin_hidden_user_path(user) %>
       </td>
       <td><%= user.document_number %></td>
       <td><%= I18n.l(user.date_of_birth.to_date) if user.date_of_birth %></td>

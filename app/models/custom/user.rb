@@ -6,7 +6,10 @@ class User
 
   scope :sort_by_newest, -> { order(created_at: :desc) }
   scope :unverified, -> { where(verified_at: nil).where.not(document_number: nil) }
-  scope :search_by_email_username_document, ->(term) { where("email = ? OR username ILIKE ? OR document_number ILIKE ?", term, "%#{term}%", "%#{term}%") }
+  scope :search_by_email_username_document, lambda {|term|
+    where("email = ? OR username ILIKE ? OR document_number ILIKE ?",
+          term, "%#{term}%", "%#{term}%")
+  }
 
   def self.search_unverified(term)
     term.present? ? search_by_email_username_document(term) : all
@@ -25,7 +28,7 @@ class User
 
     CSV.generate do |csv|
       csv << attributes
-      all.each do |user|
+      all.find_each do |user|
         csv << user.attributes.values_at(*attributes)
       end
     end

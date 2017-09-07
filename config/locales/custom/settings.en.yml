@@ -4,3 +4,5 @@ en:
       spending_proposals: Spending proposals
       spending_proposal_features:
         voting_allowed: Voting on spending proposals
+    mailer_from_name: Consul
+    mailer_from_address: noreply@consul.es

@@ -11,7 +11,8 @@ en:
     none: All municipality
   layouts:
     footer:
-      copyright: Ayuntamiento de Chiloeches, %{year}
+      copyright: Chiloeches Town Hall, %{year}
+      more_info: More information
     header:
       open_gov: Decide Chiloeches
       spending_proposals: Participatory budgeting

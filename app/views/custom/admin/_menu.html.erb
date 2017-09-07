@@ -1,39 +1,198 @@
-<nav class="admin-sidebar">
-  <ul id="admin_menu">
+<div class="admin-sidebar" data-equalizer-watch>
+  <ul id="admin_menu" data-accordion-menu>
 
-    <%= nav_element('tags', admin_tags_path, 'debate_topics', class_icon: 'icon-tag') %>
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-proposals"></span>
+        <strong><%= t("admin.menu.title_categories") %></strong>
+      </a>
+      <ul <%= "class=is-active" if menu_tags? %>>
+        <li <%= "class=active" if controller_name == "tags" %>>
+          <%= link_to t("admin.menu.proposals_topics"), admin_tags_path %>
+        </li>
+      </ul>
+    </li>
 
-    <%= nav_element('proposals', admin_proposals_path, 'hidden_proposals', class_icon: 'icon-proposals') %>
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-eye"></span>
+        <strong><%= t("admin.menu.title_moderated_content") %></strong>
+      </a>
+      <ul <%= "class=is-active" if menu_moderated_content? %>>
+        <li <%= "class=active" if controller_name == "proposals" %>>
+          <%= link_to t("admin.menu.hidden_proposals"), admin_proposals_path %>
+        </li>
 
-    <%= nav_element('debates', admin_debates_path, 'hidden_debates', class_icon: 'icon-debates') if feature?(:debates) %>
+        <% if feature?(:debates) %>
+          <li <%= "class=active" if controller_name == "debates" %>>
+            <%= link_to t("admin.menu.hidden_debates"), admin_debates_path %>
+          </li>
+        <% end %>
 
-    <%= nav_element('comments', admin_comments_path, 'hidden_comments', class_icon: 'icon-comments') %>
+        <li <%= "class=active" if controller_name == "comments" %>>
+          <%= link_to t("admin.menu.hidden_comments"), admin_comments_path %>
+        </li>
 
-    <%= nav_element('spending_proposals', admin_spending_proposals_path, 'spending_proposals', class_icon: 'icon-budget') if feature?(:spending_proposals) %>
+        <li <%= "class=active" if controller_name == "hidden_users" %>>
+          <%= link_to t("admin.menu.hidden_users"), admin_hidden_users_path %>
+        </li>
 
-    <%= nav_element('banners', admin_banners_path, 'banner', class_icon: 'icon-eye') %>
+        <li <%= "class=active" if controller_name == "verifications" %>>
+          <%= link_to t("admin.menu.incomplete_verifications"), admin_verifications_path %>
+        </li>
+      </ul>
+    </li>
 
-    <%= nav_element('users', admin_users_path, 'hidden_users', class_icon: 'icon-eye') %>
+    <% if feature?(:spending_proposals) %>
+      <li class="section-title">
+        <a href="#">
+          <span class="icon-budget"></span>
+          <strong><%= t("admin.menu.title_budgets") %></strong>
+        </a>
+        <ul <%= "class=is-active" if menu_budget? %>>
+          <li <%= "class=active" if controller_name == "spending_proposals" %>>
+            <%= link_to t("admin.menu.spending_proposals"), admin_spending_proposals_path %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
 
-    <%= nav_element('verifications', admin_verifications_path, 'incomplete_verifications', class_icon: 'icon-eye') %>
 
-    <%= nav_element('organizations', admin_organizations_path, 'organizations', class_icon: 'icon-organizations') %>
+    <% if feature?(:polls) %>
+      <li class="section-title">
+        <a href="#">
+          <span class="icon-checkmark-circle"></span>
+          <strong><%= t("admin.menu.title_polls") %></strong>
+        </a>
+        <ul id="polls_menu" <%= "class=is-active" if menu_polls? %>>
+          <li <%= "class=active" if ["polls", "officer_assignments", "booth_assignments", "recounts", "results"].include? controller_name  %>>
+            <%= link_to t('admin.menu.polls'), admin_polls_path %>
+          </li>
 
-    <%= nav_element('officials', admin_officials_path, 'officials', class_icon: 'icon-user') %>
+          <li <%= "class=active" if controller_name == "questions" %>>
+            <%= link_to t("admin.menu.poll_questions"), admin_questions_path %>
+          </li>
 
-    <%= nav_element('moderators', admin_moderators_path, 'moderators', class_icon: 'icon-user') %>
+          <li <%= "class=active" if controller_name == "officers" %>>
+            <%= link_to t('admin.menu.poll_officers'), admin_officers_path %>
+          </li>
 
-    <%= nav_element('valuators', admin_valuators_path, 'valuators', class_icon: 'icon-user') %>
+          <li <%= "class=active" if controller_name == "booths" %>>
+            <%= link_to t('admin.menu.poll_booths'), admin_booths_path %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
 
-    <%= nav_element('managers', admin_managers_path, 'managers', class_icon: 'icon-user') %>
+    <% if feature?(:budgets) %>
+      <li class="section-title <%= "active" if controller_name == "budgets" %>">
+        <%= link_to admin_budgets_path do %>
+          <span class="icon-budget"></span>
+          <strong><%= t("admin.menu.budgets") %></strong>
+        <% end %>
+      </li>
+    <% end %>
 
-    <%= nav_element('participants', admin_participants_path(format: :csv), 'participants', class_icon: 'icon-user') %>
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-organizations"></span>
+        <strong><%= t("admin.menu.title_profiles") %></strong>
+      </a>
+      <ul <%= "class=is-active" if menu_profiles? %>>
+        <li <%= "class=active" if controller_name == "administrators" %>>
+          <%= link_to t("admin.menu.administrators"), admin_administrators_path %>
+        </li>
 
-    <%= nav_element('activity', admin_activity_path, 'activity', class_icon: 'icon-eye') %>
+        <li <%= "class=active" if controller_name == "organizations" %>>
+          <%= link_to t("admin.menu.organizations"), admin_organizations_path %>
+        </li>
 
-    <%= nav_element('settings', admin_settings_path, 'settings', class_icon: 'icon-settings') %>
+        <li <%= "class=active" if controller_name == "officials" %>>
+          <%= link_to t("admin.menu.officials"), admin_officials_path %>
+        </li>
 
-    <%= nav_element('stats', admin_stats_path, 'stats', class_icon: 'icon-stats') %>
+        <li <%= "class=active" if controller_name == "moderators" %>>
+          <%= link_to t('admin.menu.moderators'), admin_moderators_path%>
+        </li>
 
+        <li <%= "class=active" if controller_name == "valuators" %>>
+          <%= link_to t('admin.menu.valuators'), admin_valuators_path %>
+        </li>
+
+        <li <%= "class=active" if controller_name == "managers" %>>
+          <%= link_to t('admin.menu.managers'), admin_managers_path %>
+        </li>
+
+        <li <%= 'class=active' if controller_name == 'users' %>>
+          <%= link_to t('admin.menu.users'), admin_users_path %>
+        </li>
+
+        <li <%= 'class=active' if controller_name == 'participants' %>>
+          <%= link_to t('admin.menu.participants'), admin_participants_path(format: :csv) %>
+        </li>
+      </ul>
+    </li>
+
+    <% if feature?(:legislation) %>
+      <li class="section-title <%= "active" if controller.class.parent == Admin::Legislation %>">
+        <%= link_to admin_legislation_processes_path do %>
+          <span class="icon-edit"></span>
+          <strong><%= t("admin.menu.legislation") %></strong>
+        <% end %>
+      </li>
+    <% end %>
+
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-banner"></span>
+        <strong><%= t("admin.menu.title_banners") %></strong>
+      </a>
+      <ul <%= "class=is-active" if menu_banners? %>>
+        <li <%= "class=active" if controller_name == "banners" %>>
+          <%= link_to t("admin.menu.banner"), admin_banners_path %>
+        </li>
+      </ul>
+    </li>
+
+    <li class="section-title">
+      <a href="#">
+        <span class="icon-settings"></span>
+        <strong><%= t("admin.menu.title_site_customization") %></strong>
+      </a>
+      <ul <%= "class=is-active" if menu_profiles? %>>
+        <li <%= "class=active" if controller_name == "pages" %>>
+          <%= link_to t("admin.menu.site_customization.pages"), admin_site_customization_pages_path %>
+        </li>
+
+        <li <%= "class=active" if controller_name == "images" %>>
+          <%= link_to t("admin.menu.site_customization.images"), admin_site_customization_images_path %>
+        </li>
+
+        <li <%= "class=active" if controller_name == "content_blocks" %>>
+          <%= link_to t("admin.menu.site_customization.content_blocks"), admin_site_customization_content_blocks_path%>
+        </li>
+      </ul>
+    </li>
+
+    <li class="section-title <%= "active" if controller_name == "geozones" %>">
+      <%= link_to admin_geozones_path do %>
+        <strong><%= t('admin.menu.geozones') %></strong>
+      <% end %>
+    </li>
+
+    <% if feature?(:signature_sheets) %>
+      <li class="section-title <%= "active" if controller_name == "signature_sheets" %>">
+        <%= link_to admin_signature_sheets_path do %>
+          <strong><%= t("admin.menu.signature_sheets") %></strong>
+        <% end %>
+      </li>
+    <% end %>
+
+    <li <%= "class=active" if controller_name == "newsletter" %>>
+      <%= link_to admin_newsletters_path do %>
+        <span class="icon-zip"></span>
+        <%= t("admin.menu.newsletter") %>
+      <% end %>
+    </li>
   </ul>
-</nav>
+</div>

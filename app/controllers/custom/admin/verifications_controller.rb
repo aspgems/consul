@@ -15,7 +15,7 @@ class Admin::VerificationsController < Admin::BaseController
   def create
     @user = User.unverified.find(params[:user_id])
     if @user
-      @user.update(verified_at: Time.now)
+      @user.update(verified_at: Time.current)
       Mailer.account_verification(@user, @user.email).deliver_later
     end
     redirect_to search_admin_verifications_path(request.query_parameters.slice(:term, :page)),

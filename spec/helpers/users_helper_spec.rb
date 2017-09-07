@@ -16,8 +16,8 @@ describe UsersHelper do
       comment = create(:comment, commentable: debate)
 
       debate.hide
-
-      expect(comment_commentable_title(comment)).to eq "<abbr title='This debate has been deleted'>#{comment.commentable.title}</abbr>"
+      expected = "<abbr title='This debate has been deleted'>#{comment.commentable.title}</abbr>"
+      expect(comment_commentable_title(comment)).to eq expected
     end
 
     it "should return the appropriate message for deleted proposals" do
@@ -26,7 +26,20 @@ describe UsersHelper do
 
       proposal.hide
 
-      expect(comment_commentable_title(comment)).to eq "<abbr title='This proposal has been deleted'>#{comment.commentable.title}</abbr>"
+      expected = '<del>' + comment.commentable.title +
+                 '</del> <span class="small">(This proposal has been deleted)</span>'
+      expect(comment_commentable_title(comment)).to eq expected
+    end
+
+    it "should return the appropriate message for deleted budget investment" do
+      investment = create(:budget_investment)
+      comment = create(:comment, commentable: investment)
+
+      investment.hide
+
+      expected = '<del>' + comment.commentable.title +
+                 '</del> <span class="small">(This investment has been deleted)</span>'
+      expect(comment_commentable_title(comment)).to eq expected
     end
   end
 
@@ -39,7 +52,9 @@ describe UsersHelper do
     it "should return a hint if the commentable has been deleted" do
       comment = create(:comment)
       comment.commentable.hide
-      expect(comment_commentable_title(comment)).to eq "<abbr title='This debate has been deleted'>#{comment.commentable.title}</abbr>"
+      expected = '<del>' + comment.commentable.title +
+                 '</del> <span class="small">(This debate has been deleted)</span>'
+      expect(comment_commentable_title(comment)).to eq expected
     end
   end
 
