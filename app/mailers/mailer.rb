@@ -42,10 +42,10 @@ class Mailer < ApplicationMailer
 
   def account_verification(user, recipient)
     @user = user
-    @recipient = recipient
+    @email_to = recipient
 
     with_user(user) do
-      mail(to: @recipient, subject: t('mailers.account_verification.subject'))
+      mail(to: @email_to, subject: t('mailers.account_verification.subject'))
     end
   end
 
