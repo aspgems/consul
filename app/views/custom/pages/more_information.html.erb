@@ -1,7 +1,8 @@
-<% provide :title do %><%= t('pages.titles.more_information') %><% end %>
+<% provide :title do %><%= t('pages.titles.additional_info') %><% end %>
 <div class="row">
   <div class="more-information small-12 medium-9 large-7 column">
-    <h1><%= t('pages.titles.more_information') %></h1>
+    <%= render "shared/back_link" %>
+    <h1><%= t('pages.titles.additional_info') %></h1>
     <ul class="no-bullet">
       <li>
         <%= link_to page_path('how_it_works') do %>
