@@ -4,6 +4,7 @@ es:
     more_info:
       other:
         how_to_use: "Utiliza CONSUL en tu municipio"
+        additional: "Información adicional"
     more_information:
       description:
         debates_info: "Inicia tus propios debates y participa en los de otros usuarios"
@@ -96,4 +97,5 @@ es:
         summary_4: "El resultado de las votaciones será considerado como vinculante por parte del gobierno del Ayuntamiento siempre que en esta se haya producido un número de participantes mínimo."
     titles:
       more_information: "Más información"
+      additional_info: "Información adicional"
 
