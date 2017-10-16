@@ -5,4 +5,6 @@ es:
   layouts:
     header:
       logo: Ayto. Chiloeches logo
+  votes:
+    geozone_only: Sólo puedes apoyar las propuestas generales o de tu distrito
 ...
