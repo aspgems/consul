@@ -11,6 +11,8 @@ class User
           term, "%#{term}%", "%#{term}%")
   }
 
+  delegate :name, to: :geozone, prefix: true, allow_nil: true
+
   def self.search_unverified(term)
     term.present? ? search_by_email_username_document(term) : all
   end
@@ -24,12 +26,12 @@ class User
   end
 
   def self.to_csv
-    attributes = %w{username email document_number document_type phone_number gender date_of_birth verified_at created_at}
+    attributes = %w{username email document_number document_type phone_number gender geozone_name date_of_birth verified_at created_at}
 
     CSV.generate do |csv|
       csv << attributes
       all.find_each do |user|
-        csv << user.attributes.values_at(*attributes)
+        csv << attributes.map{ |attr| user.send(attr) }
       end
     end
   end

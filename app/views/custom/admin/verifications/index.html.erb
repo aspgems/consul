@@ -13,6 +13,10 @@
       <td><%= user.document_number %></td>
       <td><%= I18n.l(user.date_of_birth.to_date) if user.date_of_birth %></td>
       <td>
+        <%= user.geozone.name if user.geozone.present? %>
+      </td>
+      <td>
+      <td>
         <%= link_to t("admin.actions.verify"),
           admin_verifications_path({ user_id: user.id }.merge request.query_parameters),
           method: :post,

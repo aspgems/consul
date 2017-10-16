@@ -4,3 +4,6 @@ es:
       spending_proposal:
         one: "Propuesta de gasto"
         other: "Propuestas de gasto"
+    attributes:
+      user:
+        geozone_id: Distrito
