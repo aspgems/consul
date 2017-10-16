@@ -172,6 +172,7 @@ Rails.application.routes.draw do
       member do
         put :restore
         put :confirm_hide
+        patch :change_geozone
       end
     end
 

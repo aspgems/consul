@@ -1,0 +1,4 @@
+$(".notice-text").html("Distrito cambiado");
+$("#notice").removeClass('hide').show().delay(2000).queue(function(n) {
+  $(this).fadeOut('slow'); n();
+});;
