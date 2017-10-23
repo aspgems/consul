@@ -19,7 +19,7 @@ class Verification::Residence
   end
 
   def geozone
-    # Nothing to do
+    Geozone.where(census_code: postal_code).first
   end
 
   def gender

@@ -6,5 +6,6 @@
 gem 'phonelib'
 
 group :development do
+  gem 'therubyracer'
   gem 'xray-rails'
 end
