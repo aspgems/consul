@@ -504,7 +504,7 @@ DEPENDENCIES
   bullet (~> 5.5.1)
   byebug (~> 9.1.0)
   cancancan (~> 1.16.0)
-  capistrano (~> 3.8.1)
+  capistrano (~> 3.8.2)
   capistrano-bundler (~> 1.2)
   capistrano-rails (~> 1.2.3)
   capistrano3-delayed-job (~> 1.7.3)
