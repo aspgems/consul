@@ -21,6 +21,7 @@ data:
     # - config/locales/**/*.%{locale}.yml
     ## Another gem (replace %#= with %=):
     # - "<%#= %x[bundle show vagrant].chomp %>/templates/locales/%{locale}.yml"
+    - config/locales/custom/%{locale}/*.yml
     - config/locales/%{locale}/general.yml
     - config/locales/%{locale}/activerecord.yml
     - config/locales/%{locale}/activemodel.yml
@@ -37,6 +38,9 @@ data:
     - config/locales/%{locale}/officing.yml
     - config/locales/%{locale}/budgets.yml
     - config/locales/%{locale}/legislation.yml
+    - config/locales/%{locale}/community.yml
+    - config/locales/%{locale}/documents.yml
+    - config/locales/%{locale}/images.yml
 
   # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
@@ -150,6 +154,7 @@ ignore_unused:
   - 'users.show.filters.*'
   - 'polls.index.filters.*'
   - 'polls.index.section_header.*'
+  - 'polls.index.orders.*'
   - 'debates.index.select_order'
   - 'debates.index.orders.*'
   - 'debates.index.section_header.*'

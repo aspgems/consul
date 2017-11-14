@@ -23,9 +23,10 @@ class Officing::ResidenceController < Officing::BaseController
     end
 
     def load_officer_assignment
-      @officer_assignments = current_user.poll_officer? ? current_user.poll_officer
-                                                              .officer_assignments
-                                                              .voting_days.where(date: Date.current) : []
+      @officer_assignments = current_user.poll_officer.
+                               officer_assignments.
+                               voting_days.
+                               where(date: Date.current)
     end
 
     def validate_officer_assignment

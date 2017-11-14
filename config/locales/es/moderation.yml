@@ -1,4 +1,3 @@
----
 es:
   moderation:
     header:
@@ -6,8 +5,8 @@ es:
     comments:
       index:
         block_authors: Bloquear autores
-        confirm: "¿Estás seguro?"
-        filter: Filtrar
+        confirm: '¿Estás seguro?'
+        filter: Filtro
         filters:
           all: Todos
           pending_flag_review: Pendientes
@@ -24,11 +23,11 @@ es:
         title: Comentarios
     dashboard:
       index:
-        title: Moderación
+        title: Moderar
     debates:
       index:
         block_authors: Bloquear autores
-        confirm: "¿Estás seguro?"
+        confirm: '¿Estás seguro?'
         filter: Filtrar
         filters:
           all: Todos
@@ -44,6 +43,8 @@ es:
           created_at: Más nuevos
           flags: Más denunciados
         title: Debates
+    header:
+      title: Moderación
     menu:
       flagged_comments: Comentarios
       flagged_debates: Debates
@@ -52,7 +53,7 @@ es:
     proposals:
       index:
         block_authors: Bloquear autores
-        confirm: "¿Estás seguro?"
+        confirm: '¿Estás seguro?'
         filter: Filtro
         filters:
           all: Todas

@@ -1,4 +1,6 @@
 AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
   Include:
     - '**/Rakefile'
     - '**/config.ru'

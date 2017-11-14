@@ -4,24 +4,10 @@ module Verification
   included do
     scope :residence_verified, -> { where.not(residence_verified_at: nil) }
     scope :level_three_verified, -> { where.not(verified_at: nil) }
-    scope :level_two_verified, lambda {
-      where("users.level_two_verified_at IS NOT NULL OR
-            (users.confirmed_phone IS NOT NULL AND users.residence_verified_at IS NOT NULL)
-            AND verified_at IS NULL")
-    }
-    scope :level_two_or_three_verified, lambda {
-      where("users.verified_at IS NOT NULL OR users.level_two_verified_at IS NOT NULL OR
-            (users.confirmed_phone IS NOT NULL AND users.residence_verified_at IS NOT NULL)")
-    }
-    scope :unverified, lambda {
-      where("users.verified_at IS NULL AND (users.level_two_verified_at IS NULL AND
-            (users.residence_verified_at IS NULL OR users.confirmed_phone IS NULL))")
-    }
-    scope :incomplete_verification, lambda {
-      where("(users.residence_verified_at IS NULL AND users.failed_census_calls_count > ?) OR
-            (users.residence_verified_at IS NOT NULL AND
-            (users.unconfirmed_phone IS NULL OR users.confirmed_phone IS NULL))", 0)
-    }
+    scope :level_two_verified, -> { where("users.level_two_verified_at IS NOT NULL OR (users.confirmed_phone IS NOT NULL AND users.residence_verified_at IS NOT NULL) AND verified_at IS NULL") }
+    scope :level_two_or_three_verified, -> { where("users.verified_at IS NOT NULL OR users.level_two_verified_at IS NOT NULL OR (users.confirmed_phone IS NOT NULL AND users.residence_verified_at IS NOT NULL)") }
+    scope :unverified, -> { where("users.verified_at IS NULL AND (users.level_two_verified_at IS NULL AND (users.residence_verified_at IS NULL OR users.confirmed_phone IS NULL))") }
+    scope :incomplete_verification, -> { where("(users.residence_verified_at IS NULL AND users.failed_census_calls_count > ?) OR (users.residence_verified_at IS NOT NULL AND (users.unconfirmed_phone IS NULL OR users.confirmed_phone IS NULL))", 0) }
   end
 
   def verification_email_sent?
@@ -69,10 +55,9 @@ module Verification
   end
 
   def user_type
-    case
-    when level_three_verified?
+    if level_three_verified?
       :level_3_user
-    when level_two_verified?
+    elsif level_two_verified?
       :level_2_user
     else
       :level_1_user

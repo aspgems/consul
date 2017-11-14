@@ -34,6 +34,7 @@
 public/sitemap.xml
 public/system/
 
+
 # Ignore files of Rubymine
 .idea/*
 
