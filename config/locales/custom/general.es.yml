@@ -6,6 +6,7 @@ es:
     index:
       section_footer:
         help_text_2: 'Para abrir un debate es necesario registrarse en %{org}. L@s usuari@s ya registrados también pueden comentar los debates abiertos y valorarlos con los botones de "Estoy de acuerdo" o "No estoy de acuerdo" que se encuentran en cada uno de ellos.'
+        help_text_3: "Ten en cuenta que un debate no activa ningún mecanismo de actuación concreto. Si quieres hacer una %{proposal} para la ciudad o plantear un proyecto de presupuestos participativos cuando se abra la convocatoria, ve a la sección correspondiente."
   layouts:
     header:
       logo: Ayto. Chiloeches logo
