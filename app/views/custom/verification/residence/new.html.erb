@@ -52,6 +52,7 @@
       <%= f.date_select :date_of_birth,
                         prompt: true,
                         start_year: 1900, end_year: 16.years.ago.year,
+                        discard_month: true, discard_day: true,
                         label: false %>
       </div>
 
